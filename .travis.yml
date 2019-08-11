@@ -9,4 +9,4 @@ cache:
 before_install:
   - export TZ='Asia/Hong_Kong'
 script:
-  - ./deploy.sh
+  - deploy.sh
