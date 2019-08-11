@@ -13,11 +13,6 @@ git config --local user.email  "g1191993@study.ouhk.edu.hk"
 git add -A
 git commit -m 'deploy'
 
-
-
-
-
 git push -f https://${access_token}@github.com/WingCH/notes.git master:gh-pages
-
 
 cd -
