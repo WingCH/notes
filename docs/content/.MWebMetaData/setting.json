@@ -1,0 +1,10 @@
+{
+  "name" : "content",
+  "fileExtension" : ".md",
+  "autoUploadInsertedImageKey" : "WingCH-https:\/\/WingCH.imgur.com\/",
+  "autoUploadInsertedImage" : false,
+  "folderType" : 10,
+  "mediaFloder" : "media",
+  "orderBy" : 0,
+  "newlinesToBR" : 0
+}

@@ -1,0 +1,12 @@
+language: node_js
+sudo: required
+node_js:
+  - "lts/*"
+branch: master
+cache:
+  directories:
+    - node_modules
+before_install:
+  - export TZ='Asia/Hong_Kong'
+script:
+  - ./deploy.sh
