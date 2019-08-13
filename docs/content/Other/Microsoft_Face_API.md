@@ -4,7 +4,7 @@
 > 目標：建立一個人臉的資料庫，我上傳一張相片，會吿訴我有相片上有什麼人
 
 [Microsoft azure portal](https://azure.microsoft.com/zh-tw/features/azure-portal/) -> 儀表板, 取得 face_api_url(**Endpoint**) 和 subscription_key(**keys**), 預設會有兩條keys 用其中一條即可
-![](media/15657024046641.jpg)
+![](./media/15657024046641.jpg)
 
 
 ```python
@@ -30,7 +30,7 @@ face_api_url = 'https://japaneast.api.cognitive.microsoft.com/face/v1.0/'
     ├── ...
 ```
 
-![](media/15657024570257.jpg)
+![](./media/15657024570257.jpg)
 
 首先，用[Detect](https://japaneast.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)功能測試是否運作正常
 
@@ -111,7 +111,7 @@ _ = plt.axis("off")
 
 好，現在我們開始建立人臉的資料庫 [PersonGroup- Create](https://japaneast.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)
 
-![](media/15657025753185.jpg)
+![](./media/15657025753185.jpg)
 
 
 ```python
