@@ -3,8 +3,6 @@
 
 > 目標：建立一個人臉的資料庫，我上傳一張相片，會吿訴我有相片上有什麼人
 
-
-
 [Microsoft azure portal](https://azure.microsoft.com/zh-tw/features/azure-portal/) -> 儀表板, 取得 face_api_url(**Endpoint**) 和 subscription_key(**keys**), 預設會有兩條keys 用其中一條即可
 ![](media/15657024046641.jpg)
 
@@ -58,22 +56,26 @@ print(detect_api_url)
 print(json.dumps(faces, indent=1))
 ```
 
->     https://japaneast.api.cognitive.microsoft.com/face/v1.0/detect/
->     [
->      {
->       "faceId": "0ba31d7e-c5bd-491d-bbbc-9f65a5056e0f",
->       "faceRectangle": {
->        "top": 59,
->        "left": 14,
->        "width": 146,
->        "height": 146
->       },
->       "faceAttributes": {
->        "gender": "male",
->        "age": 37.0
->       }
->      }
->     ]
+###### Result
+
+```shell
+https://japaneast.api.cognitive.microsoft.com/face/v1.0/detect/
+[
+    {
+       "faceId": "0ba31d7e-c5bd-491d-bbbc-9f65a5056e0f",
+       "faceRectangle": {
+        "top": 59,
+        "left": 14,
+        "width": 146,
+        "height": 146
+    },
+    "faceAttributes": {
+        "gender": "male",
+        "age": 37.0
+    }
+    }
+]
+```
 
 
 利用上述[Detect](https://japaneast.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)的結果，畫出面部矩形
@@ -101,7 +103,7 @@ for face in faces:
 _ = plt.axis("off")
 ```
 
-
+###### Result
 ![png](./media/output_7_0.png)
 
 
@@ -138,9 +140,14 @@ print(personGroup_request_URL)
 
 ```
 
-    https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/mypersongroup
+###### Result
+    
+```
+https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/mypersongroup
+```
 
 
+-------
 
 ```python
 import requests
@@ -153,8 +160,11 @@ response = requests.put(personGroup_request_URL, params=params, headers=headers,
 print(response)
 # 不正常可能代表personGroup已存在
 ```
-
-    <Response [409]>
+###### Result
+    
+```
+<Response [409]>
+```
 
 
 可以利用 [PersonGroup - List](https://japaneast.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248/console)查看現有的PersonGroup
@@ -181,15 +191,17 @@ personGroupList_request_URL = "{0}persongroups".format(face_api_url)
 response = requests.get(personGroupList_request_URL, params=params, headers=headers)
 print(json.dumps(response.json(), indent=1))
 ```
-
-    [
-     {
+###### Result
+    
+```
+[
+    {
       "personGroupId": "mypersongroup",
       "name": "group1",
       "userData": "user-provided data attached to the person group."
-     }
-    ]
-
+    }
+]
+```
 
 建立完PersonGroup後，要[建立 PersonGroup Person](https://japaneast.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)，PersonGroup-Person代表一個人的意思
 
@@ -249,14 +261,9 @@ image_3 = Image(filename='sample_data/PersonGroup/Family1-Dad/Family1-Dad3.jpg')
 display(image_1, image_2,image_3)
 ```
 
-
 ![jpeg](./media/output_17_0.jpeg)
 
-
-
 ![jpeg](./media/output_17_1.jpeg)
-
-
 
 ![jpeg](./media/output_17_2.jpeg)
 
@@ -298,16 +305,21 @@ print(json.dumps(response2.json(), indent=1))
 print(json.dumps(response3.json(), indent=1))
 ```
 
-    {
-     "persistedFaceId": "9818378c-c83d-4504-9b3f-1e279a69de60"
-    }
-    {
-     "persistedFaceId": "b45f2795-af2c-49bd-b827-ea067b6527b1"
-    }
-    {
-     "persistedFaceId": "676f087f-5692-485c-a97c-7dca43c37081"
-    }
+###### Result
 
+``` 
+{
+    "persistedFaceId": "9818378c-c83d-4504-9b3f-1e279a69de60"
+}
+{
+    "persistedFaceId": "b45f2795-af2c-49bd-b827-ea067b6527b1"
+}
+{
+    "persistedFaceId": "676f087f-5692-485c-a97c-7dca43c37081"
+}
+```
+
+-------
 
 
 ```python
@@ -331,6 +343,7 @@ print(json.dumps(response.json(), indent=1))
 
 #可以見到Dad 有3個persistedFaceId, 代表有3張相(face)
 ```
+###### Result
 
     https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/mypersongroup/persons?start=&top=
     [
@@ -394,7 +407,7 @@ response = requests.post(personGroupTrain_request_URL, params=params, headers=he
 #回應202 成功調用將返回一個空的JSON正文。
 print(response)
 ```
-
+###### Result
     <Response [202]>
 
 
@@ -407,7 +420,7 @@ response = requests.get(personGroupTrainStatus_request_URL, params=params, heade
 print(json.dumps(response.json(), indent=1))
 
 ```
-
+###### Result
     {
      "status": "succeeded",
      "createdDateTime": "2018-12-19T10:36:37.0117456Z",
@@ -436,7 +449,7 @@ faces = response.json()
 
 print(json.dumps(faces, indent=1))
 ```
-
+###### Result
     [
      {
       "faceId": "1a71a403-8618-4e8d-a29d-783c606498c1",
@@ -514,15 +527,12 @@ for face in faces:
 faceIds
 ```
 
-
-
+###### Result
 
     ['b83e9725-2102-4349-bc60-fd53d8886f2e',
      'b3ff388e-bbb3-49e7-b391-ee76f42e3721',
      '26a9f911-fcd0-4b90-a711-2b057dd9fd7a',
      '01c73367-836b-4081-8fc2-dfc10a88d3e3']
-
-
 
 
 ```python
@@ -555,6 +565,8 @@ print(json.dumps(response.json(), indent=1))
 
 # 結果顯示"faceId": "b83e9725-2102-4349-bc60-fd53d8886f2e" 與 "personId": "25364bb2-9eb4-4140-8852-0a99dd6ec833"(Dad個id) 有0.80474 相似
 ```
+
+###### Result
 
     https://japaneast.api.cognitive.microsoft.com/face/v1.0/identify
     [
@@ -627,6 +639,7 @@ print(json.dumps(response2.json(), indent=1))
 
 ```
 
+###### Result
     https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/mypersongroup/persons
     {
      "personId": "f5311f19-8d03-41d3-b29c-488213ca70b5"
@@ -695,6 +708,7 @@ print(json.dumps(samson_response1.json(), indent=1))
 print(json.dumps(samson_response2.json(), indent=1))
 ```
 
+###### Result
     {
      "error": {
       "code": "InvalidImage",
@@ -718,7 +732,7 @@ print(json.dumps(samson_response2.json(), indent=1))
     }
 
 
-*要train一次 詳細睇上面
+要train一次 詳細睇上面
 
 
 ```python
@@ -741,6 +755,7 @@ faces = response.json()
 print(json.dumps(faces, indent=1))
 ```
 
+###### Result
     [
      {
       "faceId": "50ce7fad-931a-4b54-af1d-034c5e0b9175",
@@ -849,6 +864,7 @@ print(json.dumps(faces, indent=1))
     ]
 
 
+利用上述結果，畫出面部矩形
 
 ```python
 %matplotlib inline
@@ -870,13 +886,13 @@ for face in faces:
 _ = plt.axis("off")
 ```
 
+###### Result
 
 ![png](./media/output_36_0.png)
 
 
-
+取得所有faceId
 ```python
-# 取得所有faceId
 faceIds = []
 for face in faces:
   faceIds.append(face['faceId'])
@@ -884,8 +900,7 @@ faceIds
 ```
 
 
-
-
+###### Result
     ['50ce7fad-931a-4b54-af1d-034c5e0b9175',
      'af5c5aca-0765-4e33-83b6-e20b158591d8',
      'b756184c-cbac-4449-a825-c439f9c47d3b',
@@ -897,7 +912,9 @@ faceIds
 
 
 
+-------
 
+用`faceId` 搵翻 對應 `personId` 的相似度
 ```python
 # POST
 # Query parameters
@@ -927,6 +944,7 @@ print(response.url)
 print(json.dumps(response.json(), indent=1))
 ```
 
+###### Result
     https://japaneast.api.cognitive.microsoft.com/face/v1.0/identify
     [
      {
@@ -970,6 +988,9 @@ print(json.dumps(response.json(), indent=1))
 
 
 
+顯示翻出來
+
+
 ```python
 %matplotlib inline
 import matplotlib.pyplot as plt
@@ -1010,11 +1031,12 @@ for face in faces:
 _ = plt.axis("off")
 ```
 
+###### Result
 
 ![png](./media/output_39_0.png)
 
 
-
+<!--
 ```python
 # import os
 # import json
@@ -1035,5 +1057,5 @@ _ = plt.axis("off")
         
 # print(json.dumps(peoples, indent=1))
 ```
-
-## 流程
+-->
+<!--## 流程-->
