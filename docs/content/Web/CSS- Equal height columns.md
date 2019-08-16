@@ -9,9 +9,9 @@
 1. 黑色是`row`的範圍
 2. 白色邊框是`colums`的範圍
 
-![](media/15658807937796.jpg)
+![](./media/15658807937796.jpg)
 
-#####架構:
+##### 架構:
 
 ```html
 <div class="container">
@@ -46,7 +46,7 @@
 
 https://jsfiddle.net/WingCH/1mysgeut/203/
 
-![](media/15658838473345.jpg)
+![](./media/15658838473345.jpg)
 
 
 
