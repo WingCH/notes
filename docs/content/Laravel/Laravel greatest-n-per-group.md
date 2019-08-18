@@ -66,7 +66,6 @@ After change  `m1.*` to `m1.expire_at`. I got the result I want.
 
 > online try: http://sqlfiddle.com/#!9/27fa22/4
 
-
 -------
 
 ## Implement in Lavavel
