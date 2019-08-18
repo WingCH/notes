@@ -155,6 +155,47 @@ https://github.com/laravel/framework/issues/4962
 But I failed after various attempts...
 
 ## Finally
-Finally, I asked online, I hope someone answered.
+Finally, I asked in stackoverflow.com and github
 - https://stackoverflow.com/q/57544848/5588637
 - https://github.com/laravel/framework/issues/29625#issue-481992263
+
+According to the online answer
+
+**Answer 1**:
+
+
+```php
+$users = DB::table('users as u')
+            ->select('u.*', 'm1.*')
+            ->join('memberships as m1', 'u.id', '=', 'm1.user_id')
+            ->leftJoin('memberships as m2', function ($join) {
+                $join->on('u.id', '=', 'm2.user_id')
+                    ->where(function ($query) {
+                        $query->whereColumn('m1.expire_at', '<', 'm2.expire_at')
+                              ->orWhereColumn('m1.expire_at', '=', 'm2.expire_at')
+                              ->whereColumn('m1.id', '<', 'm2.id');
+                    });
+            })
+            ->whereNull('m2.id')
+            ->get();
+```
+ 
+**Answer 2**: 
+
+```php
+$users = DB::table('users as u')
+            ->select('u.*', 'm1.*')
+            ->join('memberships as m1', 'u.id', '=', 'm1.user_id')
+            ->leftJoin('memberships as m2', function ($join) {
+                $join->on('u.id', '=', 'm2.user_id')
+                    ->on(function ($join) {
+                        $join->on('m1.id', '<', 'm2.id')
+                            ->on(function ($join) {
+                                $join->on('m1.expire_at', '<', 'm2.expire_at')
+                                    ->orOn('m1.expire_at', '=', 'm2.expire_at');
+                            });
+                    });
+            })
+            ->whereNull('m2.id')
+            ->get();
+```
