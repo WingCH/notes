@@ -57,11 +57,14 @@ WHERE
 
 After change  `m1.*` to `m1.expire_at`. I got the result I want.
 
+
 | id |       name | age |            expire_at |
 |----|------------|-----|----------------------|
 |  1 |      Apple |  22 |  2019-08-17T11:19:30Z|
 |  2 | Strawberry |  23 | 2019-08-29T11:20:19Z |
 |  3 |     Orange |  50 | 2019-08-28T11:20:40Z |
+
+> online try: http://sqlfiddle.com/#!9/27fa22/4
 
 
 -------
