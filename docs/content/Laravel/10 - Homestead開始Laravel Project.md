@@ -1,8 +1,11 @@
-# Homestead開始Laravel Project
+# 11 - Homestead開始Laravel Project
 
 > 首先跟[官方教學](https://laravel.com/docs/5.8/homestead)嘗試，以下係我自己一次開新Project的過程
 
 我已安裝好homestead等工具
+
+> 這次我是local生成Laravel Project後 再在VM綁定
+> 掉轉做也可以，參考：https://ithelp.ithome.com.tw/articles/10193858?sc=rss.qu
 
 這次把Project放在`/Users/wingch/Project/try`
 
