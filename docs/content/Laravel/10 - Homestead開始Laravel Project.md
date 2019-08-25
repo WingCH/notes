@@ -1,4 +1,4 @@
-# 11 - Homestead開始Laravel Project
+# 10 - Homestead開始Laravel Project
 
 > 首先跟[官方教學](https://laravel.com/docs/5.8/homestead)嘗試，以下係我自己一次開新Project的過程
 

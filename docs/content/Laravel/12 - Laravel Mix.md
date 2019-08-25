@@ -1,4 +1,4 @@
-# Laravel Mix
+# 12 - Laravel Mix
 
 > https://laravel-mix.com/
 > 
