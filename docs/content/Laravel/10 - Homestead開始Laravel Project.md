@@ -80,3 +80,23 @@ php artisan key:generate
 ![](media/15662257158696.jpg)
 
 > 現在我們可以在本地的`/Users/wingch/Project/try/nova` 編程，homestead（虛擬機）的`project/try/nova/`會同步，然後在虛擬機中運行Laravel Project.
+
+
+-------
+
+## Xdebug
+
+> 首先跟住這個教學setup `xdebug.ini`
+> https://learnku.com/articles/17564
+
+`xdebug.ini`參考:
+![](./media/15691573781829.jpg)
+
+接下來跟圖: 
+![](./media/15691568236038.jpg)
+![](./media/15691568571759.jpg)
+![](./media/15691568694346.jpg)
+
+![](./media/15691570730069.jpg)
+
+![](./media/15691571296724.jpg)
