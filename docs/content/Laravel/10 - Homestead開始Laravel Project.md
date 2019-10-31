@@ -88,9 +88,21 @@ php artisan key:generate
 
 > 首先跟住這個教學setup `xdebug.ini`
 > https://learnku.com/articles/17564
+> 💡: 要跟翻yaml 既php version, 我自己預設7.3, 呢到7.1
+> ![](media/15692325765244.jpg)
+
+
 
 `xdebug.ini`參考:
-![](./media/15691573781829.jpg)
+
+```
+zend_extension=xdebug.so
+xdebug.remote_enable = 1
+xdebug.remote_connect_back = 1
+xdebug.remote_autostart=1
+xdebug.remote_port = 9001
+xdebug.remote_host=10.0.2.2
+```
 
 接下來跟圖: 
 ![](./media/15691568236038.jpg)
