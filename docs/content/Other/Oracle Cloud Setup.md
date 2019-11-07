@@ -16,7 +16,7 @@
 
 
 
-```
+```bash
 #oracle linux
 ssh opc@ip
 
@@ -36,7 +36,11 @@ ssh ubuntu@ip
 sudo apt update
 sudo apt install xfce4 xfce4-goodies
 sudo apt install tightvncserver
-# setup password between 6 to 8 
+
+#For copy & paste https://unix.stackexchange.com/a/274692
+sudo apt-get install autocutsel
+
+# setup password between 6 to 8
 vncserver
 ```
 ![-c](./media/15721803001859.jpg)
@@ -61,6 +65,7 @@ copy in xstartup
 ```
 #!/bin/bash
 xrdb $HOME/.Xresources
+autocutsel -fork  
 startxfce4 &
 ```
 
