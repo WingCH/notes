@@ -1,6 +1,7 @@
-# Oracle Cloud Setup
+# Oracle Cloud Setup 
 
-> https://51.ruyo.net/14138.html
+
+> https://51.ruyo.net/14138.html test
 
 生成ssh key[教學](https://www.jianshu.com/p/253ca7c2e80c)
 
