@@ -23,7 +23,7 @@ ssh opc@ip
 #Canonical-Ubuntu-18
 ssh ubuntu@ip
 ```
-![-w570](media/15713866629807.jpg)
+![-w570](./media/15713866629807.jpg)
 
 
 -------
