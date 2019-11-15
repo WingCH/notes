@@ -66,6 +66,10 @@ ufw status
 sudo apt update
 sudo apt install xfce4 xfce4-goodies
 sudo apt install tightvncserver
+
+#For copy & paste https://unix.stackexchange.com/a/274692
+sudo apt-get install autocutsel
+
 # setup password between 6 to 8 
 vncserver
 ```
@@ -91,6 +95,7 @@ copy in xstartup
 ```
 #!/bin/bash
 xrdb $HOME/.Xresources
+autocutsel -fork
 startxfce4 &
 ```
 
@@ -103,6 +108,9 @@ vncserver
 
 # Create an SSH connection forwards to the localhost connection for VNC.
 ssh -L 5901:127.0.0.1:5901 root@142.93.61.168
+
+# Or open 5901 port to use remote url access
+sudo ufw allow 5901
 ```
 
 #### Contect VNC
@@ -201,6 +209,11 @@ GRANT ALL ON booking.* TO 'booking_user'@'%' IDENTIFIED BY 'password' WITH GRANT
 sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
 
 sudo systemctl restart mysql
+```
+
+
+```
+ufw allow mysql
 ```
 
 ##### Try in mysql client
@@ -331,13 +344,15 @@ sudo apt-get install git
 
 git config --global user.name "Your name"
 git config --global user.email email
-
-sudo apt-get install ssh
-ssh-keygen -t rsa -C "github email"
 ```
 ![](./media/15723561019412.jpg)
 
-```
+### use ssh ( Optional ) 
+
+```bash
+sudo apt-get install ssh
+ssh-keygen -t rsa -C "github email"
+
 #copy output
 cat ~/.ssh/id_rsa.pub
 ```
@@ -354,17 +369,31 @@ ssh -T git@github.com
 
 ```bash
 cd /var/www/
+```
 
+```bash
 # Clone own project
-git clone git@github.com:WingCH/Booking_Web.git
+# Option 1. use ssh (setup in above step) 
+sudo git clone git@github.com:WingCH/Booking_Web.git
 
+# Option 1. use https
+
+# setup this config in order to input password once only
+# https://blog.csdn.net/Aifore/article/details/82870825
+git config --global credential.helper store
+# input password after this command 
+#(if using two factor authentication need to use personal access token https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line )
+sudo git clone https://github.com/WingCH/Booking_Web.git
+
+```
+
+```bash
 cd Booking_Web
 
 # give the web server user write access to the storage and cache
 sudo chown -R www-data.www-data storage
 sudo chown -R www-data.www-data bootstrap/cache
 ```
-
 ```bash
 # copy and rename .env.example to .env
 mv .env.example .env
@@ -407,3 +436,7 @@ ufw allow mysql
 ufw status
 ```
 ![](./media/15723621324320.jpg)
+
+### SSL
+
+https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04
