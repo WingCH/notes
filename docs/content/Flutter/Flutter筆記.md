@@ -43,6 +43,15 @@ ListTile(
 
 ![](./media/15751967485407.jpg)
 
+-------
+
+## ListView無set itemCount就會變無限
+
+<iframe style="width:100%;height:400px;" src="https://dartpad.dev/ad90c17fec0496b332348a6d690226ec"></iframe>
+
+
+
+-------
 
 
 
