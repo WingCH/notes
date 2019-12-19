@@ -102,8 +102,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
 ```
 
-![2019-12-19_16-24-22 -1-](./media/2019-12-19_16-24-22%20-1-.gif)
+![2019-12-19_16-24-22 -1-](./media/2019-12-19_16-24-22.gif)
 
 
-code:
-https://drive.google.com/file/d/1Abq7_05wN84I28btYcx5Hk28ckThn1cp/view?usp=sharing
+code:https://drive.google.com/file/d/1Abq7_05wN84I28btYcx5Hk28ckThn1cp/view?usp=sharing
