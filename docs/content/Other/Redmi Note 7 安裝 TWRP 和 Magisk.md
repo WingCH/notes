@@ -3,12 +3,25 @@
 > 需要已解鎖!!! https://www.miui.com/unlock/index.html
 
 ## 需要文件:
-**twrp**: https://twrp.me/Devices/
+
+twrp 不能OTA更新系統，比較麻煩
+已轉用[orangefox](https://youyou-tech.com/2019/11/15/%E6%A9%99%E7%8B%90Recovery-%E4%B8%80%E6%AC%BE%E5%8F%A6%E7%B1%BB%E5%8A%9F%E8%83%BD%E4%B8%B0%E5%AF%8C%E7%9A%84/)
+參入 tg群 https://t.me/OrangeFoxChat
+
+`/list`
+![-w408](media/15768514977467.jpg)
+
+找到手機型號完去 [https://files.orangefox.tech/OrangeFox-Stable/]() 找到下載
+
+-------
+
+~~**twrp**: https://twrp.me/Devices/~~
 > 搵翻自己手機既型號，如果沒有的話，要上網search，Redmi Note 7是沒有官方的，所以我找了第三方: 
 > https://forum.xda-developers.com/redmi-note-7/development/recovery-unofficial-twrp-touch-recovery-t3921637
 > http://www.miui.com/thread-21108605-1-1.html
 
 **Magisk**: https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445
+
 
 > 下載後放到手機裡
 
