@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>B436CEA8B334BFCCCF46260F27C45E92</key>
+	<array>
+		<dict>
+			<key>localURL</key>
+			<string>./media/2019-12-26_20-30-48.gif</string>
+			<key>remoteURL</key>
+			<string>https://i.loli.net/2019/12/26/Tfo1YZe6aDVNvs7.gif</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>./media/Flutter_bloc.png</string>
+			<key>remoteURL</key>
+			<string>https://i.loli.net/2019/12/26/KXqxjFyaL9iPeJO.png</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>./media/15773641492925.jpg</string>
+			<key>remoteURL</key>
+			<string>https://i.loli.net/2019/12/26/qQEKw7tsrlIMubN.jpg</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>./media/15773641657209.jpg</string>
+			<key>remoteURL</key>
+			<string>https://i.loli.net/2019/12/26/ry4pfVuQBoi6kA2.jpg</string>
+		</dict>
+		<dict>
+			<key>localURL</key>
+			<string>media/Flutter_bloc%20-2-.png</string>
+			<key>remoteURL</key>
+			<string>https://i.loli.net/2019/12/26/j5rdLHO3eftvDn1.png</string>
+		</dict>
+	</array>
+	<key>selectedItem</key>
+	<string>B436CEA8B334BFCCCF46260F27C45E92</string>
+</dict>
+</plist>
