@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Microsoft Face API | WingCH&#39;s Notes</title>
+    <meta name="description" content="My study record ~">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.a0ada997.css" as="style"><link rel="preload" href="/assets/js/app.7e089e31.js" as="script"><link rel="preload" href="/assets/js/2.c4ed3192.js" as="script"><link rel="preload" href="/assets/js/12.8ae9fdae.js" as="script"><link rel="prefetch" href="/assets/js/10.5ebac374.js"><link rel="prefetch" href="/assets/js/11.3300a24e.js"><link rel="prefetch" href="/assets/js/13.eeb0d579.js"><link rel="prefetch" href="/assets/js/14.61df071f.js"><link rel="prefetch" href="/assets/js/15.b3746feb.js"><link rel="prefetch" href="/assets/js/16.a259ddb9.js"><link rel="prefetch" href="/assets/js/17.db48e197.js"><link rel="prefetch" href="/assets/js/18.e7bdc946.js"><link rel="prefetch" href="/assets/js/19.fe731b78.js"><link rel="prefetch" href="/assets/js/20.504dc4f7.js"><link rel="prefetch" href="/assets/js/21.fe1dcdaf.js"><link rel="prefetch" href="/assets/js/22.c19896df.js"><link rel="prefetch" href="/assets/js/23.d8a62094.js"><link rel="prefetch" href="/assets/js/24.33d64965.js"><link rel="prefetch" href="/assets/js/25.074e7799.js"><link rel="prefetch" href="/assets/js/26.2ba4f8b4.js"><link rel="prefetch" href="/assets/js/27.4e0363ea.js"><link rel="prefetch" href="/assets/js/28.788ce44c.js"><link rel="prefetch" href="/assets/js/29.229bb272.js"><link rel="prefetch" href="/assets/js/3.8e65d1b5.js"><link rel="prefetch" href="/assets/js/30.a3711bab.js"><link rel="prefetch" href="/assets/js/31.b584112c.js"><link rel="prefetch" href="/assets/js/32.7a70aa1f.js"><link rel="prefetch" href="/assets/js/33.b567ea94.js"><link rel="prefetch" href="/assets/js/34.dd5ec146.js"><link rel="prefetch" href="/assets/js/35.3a5e4340.js"><link rel="prefetch" href="/assets/js/36.f604491d.js"><link rel="prefetch" href="/assets/js/37.0c3e9f2d.js"><link rel="prefetch" href="/assets/js/38.19e75ea7.js"><link rel="prefetch" href="/assets/js/39.a91a417f.js"><link rel="prefetch" href="/assets/js/4.47482002.js"><link rel="prefetch" href="/assets/js/40.0965217f.js"><link rel="prefetch" href="/assets/js/41.abcb0dba.js"><link rel="prefetch" href="/assets/js/42.3176ccca.js"><link rel="prefetch" href="/assets/js/43.6fea42b0.js"><link rel="prefetch" href="/assets/js/44.d2a3bfb7.js"><link rel="prefetch" href="/assets/js/45.d2170ea3.js"><link rel="prefetch" href="/assets/js/46.380c4c1d.js"><link rel="prefetch" href="/assets/js/47.7b6d86e4.js"><link rel="prefetch" href="/assets/js/48.4decb272.js"><link rel="prefetch" href="/assets/js/49.4f7aad6b.js"><link rel="prefetch" href="/assets/js/5.d0909704.js"><link rel="prefetch" href="/assets/js/50.0ea8b738.js"><link rel="prefetch" href="/assets/js/51.5fb76eba.js"><link rel="prefetch" href="/assets/js/52.bb9699c8.js"><link rel="prefetch" href="/assets/js/53.6b5aebf8.js"><link rel="prefetch" href="/assets/js/54.539b78ee.js"><link rel="prefetch" href="/assets/js/55.f868f206.js"><link rel="prefetch" href="/assets/js/56.35fb381a.js"><link rel="prefetch" href="/assets/js/57.69320771.js"><link rel="prefetch" href="/assets/js/58.896c4a8f.js"><link rel="prefetch" href="/assets/js/59.d8475aef.js"><link rel="prefetch" href="/assets/js/6.8f56dda7.js"><link rel="prefetch" href="/assets/js/60.b85217a6.js"><link rel="prefetch" href="/assets/js/61.3fb2a906.js"><link rel="prefetch" href="/assets/js/62.de3d1891.js"><link rel="prefetch" href="/assets/js/63.0ffd08aa.js"><link rel="prefetch" href="/assets/js/64.76fab274.js"><link rel="prefetch" href="/assets/js/65.03d7a0a0.js"><link rel="prefetch" href="/assets/js/66.50689c62.js"><link rel="prefetch" href="/assets/js/67.35dc34f5.js"><link rel="prefetch" href="/assets/js/68.df57b9d0.js"><link rel="prefetch" href="/assets/js/69.8760852a.js"><link rel="prefetch" href="/assets/js/7.50bfec6f.js"><link rel="prefetch" href="/assets/js/70.343a12e3.js"><link rel="prefetch" href="/assets/js/71.8ee78897.js"><link rel="prefetch" href="/assets/js/72.9f53a70e.js"><link rel="prefetch" href="/assets/js/73.1cb6f745.js"><link rel="prefetch" href="/assets/js/74.4796dca7.js"><link rel="prefetch" href="/assets/js/75.56a460cf.js"><link rel="prefetch" href="/assets/js/76.973285ed.js"><link rel="prefetch" href="/assets/js/77.7a72f185.js"><link rel="prefetch" href="/assets/js/78.cfbed38c.js"><link rel="prefetch" href="/assets/js/79.0177f054.js"><link rel="prefetch" href="/assets/js/8.4aeebaa7.js"><link rel="prefetch" href="/assets/js/80.6ba8ac0c.js"><link rel="prefetch" href="/assets/js/81.6d078fbc.js"><link rel="prefetch" href="/assets/js/82.72c25c81.js"><link rel="prefetch" href="/assets/js/83.95cf68e4.js"><link rel="prefetch" href="/assets/js/84.9979046a.js"><link rel="prefetch" href="/assets/js/85.2af4dcd1.js"><link rel="prefetch" href="/assets/js/86.46e3c38b.js"><link rel="prefetch" href="/assets/js/87.e166eb0a.js"><link rel="prefetch" href="/assets/js/88.b7c0f0a2.js"><link rel="prefetch" href="/assets/js/89.a9d77457.js"><link rel="prefetch" href="/assets/js/9.2ec85fc9.js"><link rel="prefetch" href="/assets/js/90.fc14082d.js"><link rel="prefetch" href="/assets/js/91.cb9f7e41.js"><link rel="prefetch" href="/assets/js/92.00131536.js"><link rel="prefetch" href="/assets/js/93.480dd29a.js"><link rel="prefetch" href="/assets/js/94.26e436f8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a0ada997.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">WingCH's Notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/WingCH/notes" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/WingCH/notes" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Android</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Android/Android Navigation Drawer with Fragments.html" class="sidebar-link">Android Navigation Drawer with Fragments</a></li><li><a href="/content/Android/Android佈局-BottomNavigationView+ViewPager+Fragment.html" class="sidebar-link">Android佈局-BottomNavigationView+ViewPager+Fragment</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Arduino</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Arduino/Arduino OLED.html" class="sidebar-link">Arduino OLED</a></li><li><a href="/content/Arduino/Arduino Yun Console輸出 - Wifi.html" class="sidebar-link">Arduino Yun Console輸出 - Wifi</a></li><li><a href="/content/Arduino/Arduino Yun Firebase使用.html" class="sidebar-link">Arduino Yun Firebase使用</a></li><li><a href="/content/Arduino/Arduino Yun 連接Wifi.html" class="sidebar-link">Arduino Yun 連接Wifi</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Exam</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Exam/A101F.html" class="sidebar-link">A101F</a></li><li><a href="/content/Exam/COMP356F Software Engineering and Project Management.html" class="sidebar-link">COMP356F Software Engineering and Project Management</a></li><li><a href="/content/Exam/COMPS362F Concurrent and Network Programming.html" class="sidebar-link">COMPS362F Concurrent and Network Programming</a></li><li><a href="/content/Exam/COMPS363F Exam.html" class="sidebar-link">COMPS363F Exam</a></li><li><a href="/content/Exam/COMPS363F Mid-term.html" class="sidebar-link">COMPS363F Mid-term</a></li><li><a href="/content/Exam/COMPS380F Exam.html" class="sidebar-link">COMPS380F Exam</a></li><li><a href="/content/Exam/COMPS380F Mid-term Test.html" class="sidebar-link">COMPS380F Mid-term Test</a></li><li><a href="/content/Exam/COMPS381F Exam.html" class="sidebar-link">COMPS381F Exam</a></li><li><a href="/content/Exam/COMPS382 Exam.html" class="sidebar-link">COMPS382 Exam</a></li><li><a href="/content/Exam/COMPS382F.html" class="sidebar-link">COMPS382F</a></li><li><a href="/content/Exam/COMPS413 Quiz 1.html" class="sidebar-link">COMPS413 Quiz 1</a></li><li><a href="/content/Exam/COMPS413F – Quiz 2.html" class="sidebar-link">COMPS413F – Quiz 2</a></li><li><a href="/content/Exam/COMPS413F Exam.html" class="sidebar-link">COMPS413F Exam</a></li><li><a href="/content/Exam/Computer Architecture.html" class="sidebar-link">Computer Architecture</a></li><li><a href="/content/Exam/Database.html" class="sidebar-link">Database</a></li><li><a href="/content/Exam/Java.html" class="sidebar-link">Java</a></li><li><a href="/content/Exam/OOT Exam Notes.html" class="sidebar-link">OOT Exam Notes</a></li><li><a href="/content/Exam/Operating Systems.html" class="sidebar-link">Operating Systems</a></li><li><a href="/content/Exam/Specimen Paper _ Software Engineering and Project Management.html" class="sidebar-link">Specimen Paper _ Software Engineering and Project Management</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Firebase</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Firebase/Firebase functions.html" class="sidebar-link">Firebase functions</a></li><li><a href="/content/Firebase/Firebase 查詢資料.html" class="sidebar-link">Firebase 查詢資料</a></li><li><a href="/content/Firebase/Firebase 連接資料庫 寫入資料.html" class="sidebar-link">Firebase 連接資料庫 寫入資料</a></li><li><a href="/content/Firebase/Push Notification - Cloud Messaging.html" class="sidebar-link">Push Notification - Cloud Messaging</a></li><li><a href="/content/Firebase/REST 高級查詢.html" class="sidebar-link">REST 高級查詢</a></li><li><a href="/content/Firebase/Rule index.html" class="sidebar-link">Rule index</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Flutter</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Flutter/BLoC Example - Counter .html" class="sidebar-link">BLoC Example - Counter</a></li><li><a href="/content/Flutter/Flutter - json_serializable.html" class="sidebar-link">Flutter - json_serializable</a></li><li><a href="/content/Flutter/Flutter onResume get Clipboard.html" class="sidebar-link">Flutter onResume get Clipboard</a></li><li><a href="/content/Flutter/Flutter 高德地圖.html" class="sidebar-link">Flutter 高德地圖</a></li><li><a href="/content/Flutter/Flutter-build-iOS.html" class="sidebar-link">Flutter Build iOS and Upload to Firebse App Distribution</a></li><li><a href="/content/Flutter/Flutter筆記.html" class="sidebar-link">Flutter筆記</a></li><li><a href="/content/Flutter/Movie6 Code test.html" class="sidebar-link">Movie 6 Code Test</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>iOS</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/iOS/IOS 原生 vs Alamofire+SwiftyJSON.html" class="sidebar-link">IOS 原生 vs Alamofire+SwiftyJSON</a></li><li><a href="/content/iOS/Swift Package Manager.html" class="sidebar-link">Swift Package Manager</a></li><li><a href="/content/iOS/TabelView Cell and callback.html" class="sidebar-link">Table View Custom Cell and Callback</a></li><li><a href="/content/iOS/小筆記.html" class="sidebar-link">小筆記</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Laravel</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Laravel/1 - Laravel 5.2 Router.html" class="sidebar-link">1 - Laravel 5.2 Router</a></li><li><a href="/content/Laravel/10 - Homestead開始Laravel Project.html" class="sidebar-link">10 - Homestead開始Laravel Project</a></li><li><a href="/content/Laravel/11 - Laravel 5.8 Nova.html" class="sidebar-link">11 - Laravel 5.8 Nova</a></li><li><a href="/content/Laravel/12 - Laravel Mix.html" class="sidebar-link">12 - Laravel Mix</a></li><li><a href="/content/Laravel/2 - Laravel 5.2 Controller.html" class="sidebar-link">2 - Laravel 5.2 Controller</a></li><li><a href="/content/Laravel/3 - Laravel 5.2 View.html" class="sidebar-link">3 - Laravel 5.2 View</a></li><li><a href="/content/Laravel/4 - Laravel 5.2 Database.html" class="sidebar-link">4 - Laravel 5.2 Database</a></li><li><a href="/content/Laravel/5 - Laravel 5.2 資料驗證 Request.html" class="sidebar-link">5 - Laravel 5.2 資料驗證 Request</a></li><li><a href="/content/Laravel/6 - Laravel 5.2 Middleware 中面層.html" class="sidebar-link">6 - Laravel 5.2 Middleware 中面層</a></li><li><a href="/content/Laravel/7 - Laravel 5.2 Google Cloud Storage.html" class="sidebar-link">7 - Laravel 5.2 Google Cloud Storage</a></li><li><a href="/content/Laravel/8 - Laravel 5.2 bootstrap-fileinput.html" class="sidebar-link">8 - Laravel 5.2 bootstrap-fileinput</a></li><li><a href="/content/Laravel/9 - Laravel 5.8.30 Mail queue.html" class="sidebar-link">9 - Laravel 5.8.30 Mail queue</a></li><li><a href="/content/Laravel/Laravel 5.2 Auth.html" class="sidebar-link">Laravel 5.2 Auth</a></li><li><a href="/content/Laravel/Laravel greatest-n-per-group.html" class="sidebar-link">Laravel: greatest-n-per-group(檢索每個User的最新記錄)</a></li><li><a href="/content/Laravel/laravel-socialite.html" class="sidebar-link">laravel/socialite</a></li><li><a href="/content/Laravel/PhpStorm.html" class="sidebar-link">PhpStorm</a></li><li><a href="/content/Laravel/Synology 安裝 Laravel.html" class="sidebar-link">Synology 安裝 Laravel</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>media</span> <!----></p> <!----></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Other</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Other/AWS Ubuntu Setup.html" class="sidebar-link">AWS Ubuntu Setup</a></li><li><a href="/content/Other/AWS Ubuntu 安裝 Laravel.html" class="sidebar-link">AWS Ubuntu 安裝 Laravel</a></li><li><a href="/content/Other/Cam wansview.html" class="sidebar-link">Cam wansview</a></li><li><a href="/content/Other/Deadlock.html" class="sidebar-link">Deadlock</a></li><li><a href="/content/Other/Docker container 進入並使用終端機.html" class="sidebar-link">Docker container 進入並使用終端機</a></li><li><a href="/content/Other/Export iCloud Keychain.html" class="sidebar-link">Export Safari Keychain</a></li><li><a href="/content/Other/Git 救回遺失的 commit 紀錄.html" class="sidebar-link">Git 救回遺失的 commit 紀錄</a></li><li><a href="/content/Other/MacOS Automator + Applescript solution for exporting docx to pdf.html" class="sidebar-link">MacOS Automator + Applescript solution for exporting docx to pdf</a></li><li><a href="/content/Other/Microsoft_Face_API.html" class="active sidebar-link">Microsoft Face API</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/content/Other/Microsoft_Face_API.html#persongroup-train" class="sidebar-link">PersonGroup - Train</a></li></ul></li><li><a href="/content/Other/MongoDB.html" class="sidebar-link">MongoDB</a></li><li><a href="/content/Other/Navicat 提取中文包.html" class="sidebar-link">Navicat 提取中文包</a></li><li><a href="/content/Other/Oracle Cloud Setup.html" class="sidebar-link">Oracle Cloud Setup</a></li><li><a href="/content/Other/Python face_recognition.html" class="sidebar-link">Python face_recognition</a></li><li><a href="/content/Other/Redmi Note 7 安裝 TWRP 和 Magisk.html" class="sidebar-link">Redmi Note 7 安裝 TWRP 和 Magisk</a></li><li><a href="/content/Other/S3 刷 Android 6.html" class="sidebar-link">S3 刷 Android 6</a></li><li><a href="/content/Other/Siri shortcut - JSBox 九巴到站時間.html" class="sidebar-link">Siri shortcut / JSBox 九巴到站時間</a></li><li><a href="/content/Other/Sublime Text 3 Setup Mac.html" class="sidebar-link">Sublime Text 3 Setup Mac</a></li><li><a href="/content/Other/Synology setup MQTT.html" class="sidebar-link">Synology setup MQTT</a></li><li><a href="/content/Other/Ubuntu install Laravel.html" class="sidebar-link">Ubuntu install Laravel</a></li><li><a href="/content/Other/使用ocrmypdf掃描PDF轉換成搜索文件.html" class="sidebar-link">使用ocrmypdf掃描PDF轉換成搜索文件</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>PHP</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/PHP/PHP Mysql Int自動變String.html" class="sidebar-link">PHP Mysql Int自動變String</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Synology</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Synology/Synology MariaDB10 Setup.html" class="sidebar-link">Synology MariaDB10 Setup</a></li><li><a href="/content/Synology/Synology安裝jupyter-notebook.html" class="sidebar-link">Synology安裝jupyter-notebook</a></li><li><a href="/content/Synology/在Synology搭建Shadowsocks - Docker.html" class="sidebar-link">在Synology搭建Shadowsocks - Docker</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Tensorflow</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Tensorflow/Tensorflow.html" class="sidebar-link">Tensorflow</a></li><li><a href="/content/Tensorflow/目標.html" class="sidebar-link">目標</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Vue</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Vue/Vue.js VSCode debug mode.html" class="sidebar-link">Vue.js VSCode debug mode</a></li><li><a href="/content/Vue/Vuex.html" class="sidebar-link">Vuex</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Web</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/content/Web/CSS- Equal height columns.html" class="sidebar-link">CSS: Equal height columns</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="microsoft-face-api"><a href="#microsoft-face-api" aria-hidden="true" class="header-anchor">#</a> Microsoft Face API</h1> <blockquote><p>目標：建立一個人臉的資料庫，我上傳一張相片，會吿訴我有相片上有什麼人</p></blockquote> <p><a href="https://azure.microsoft.com/zh-tw/features/azure-portal/" target="_blank" rel="noopener noreferrer">Microsoft azure portal<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> -&gt; 儀表板, 取得 face_api_url(<strong>Endpoint</strong>) 和 subscription_key(<strong>keys</strong>), 預設會有兩條keys 用其中一條即可
+<img src="/assets/img/15657024046641.dc9e19b2.jpg" alt=""></p> <div class="language-python extra-class"><pre class="language-python"><code>subscription_key <span class="token operator">=</span> <span class="token string">'71c7995fd77a4387a2de38d12d33e86f'</span>
+<span class="token keyword">assert</span> subscription_key
+
+face_api_url <span class="token operator">=</span> <span class="token string">'https://japaneast.api.cognitive.microsoft.com/face/v1.0/'</span>
+</code></pre></div><p>下載官方的<a href="https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data" target="_blank" rel="noopener noreferrer">示範圖片<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>,這裡我把測試用的相片放進了“test”</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">.</span>
+├── PersonGroup
+│   ├── Person
+│   │   ├── Person_face_01.jpg
+│   │   ├── Person_face_02.jpg
+│   │   └── Person_face_03.jpg
+│   ├── Person
+│   │   ├── Person_face_01.jpg
+│   │   ├── <span class="token punctuation">..</span>.
+└── <span class="token builtin class-name">test</span>
+    ├── test1.jpg
+    ├── <span class="token punctuation">..</span>.
+</code></pre></div><p><img src="/assets/img/15657024570257.ea05f968.jpg" alt=""></p> <p>首先，用<a href="https://japaneast.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236" target="_blank" rel="noopener noreferrer">Detect<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>功能測試是否運作正常</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+detect_api_url <span class="token operator">=</span> face_api_url <span class="token operator">+</span> <span class="token string">'detect/'</span>
+
+headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span> <span class="token string">'Content-Type'</span><span class="token punctuation">:</span><span class="token string">'application/octet-stream'</span><span class="token punctuation">}</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'returnFaceId'</span><span class="token punctuation">:</span> <span class="token string">'true'</span><span class="token punctuation">,</span>
+    <span class="token string">'returnFaceLandmarks'</span><span class="token punctuation">:</span> <span class="token string">'false'</span><span class="token punctuation">,</span>
+    <span class="token string">'returnFaceAttributes'</span><span class="token punctuation">:</span> <span class="token string">'age,gender'</span>
+<span class="token punctuation">}</span>
+image_path <span class="token operator">=</span> <span class="token string">'sample_data/PersonGroup/Family1-Dad/Family1-Dad1.jpeg'</span>
+image_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>image_path<span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>detect_api_url<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>image_data<span class="token punctuation">)</span>
+faces <span class="token operator">=</span> response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>detect_api_url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>faces<span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h6 id="result"><a href="#result" aria-hidden="true" class="header-anchor">#</a> Result</h6> <div class="language-shell extra-class"><pre class="language-shell"><code>https://japaneast.api.cognitive.microsoft.com/face/v1.0/detect/
+<span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+       <span class="token string">&quot;faceId&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;0ba31d7e-c5bd-491d-bbbc-9f65a5056e0f&quot;</span>,
+       <span class="token string">&quot;faceRectangle&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;top&quot;</span><span class="token builtin class-name">:</span> <span class="token number">59</span>,
+        <span class="token string">&quot;left&quot;</span><span class="token builtin class-name">:</span> <span class="token number">14</span>,
+        <span class="token string">&quot;width&quot;</span><span class="token builtin class-name">:</span> <span class="token number">146</span>,
+        <span class="token string">&quot;height&quot;</span><span class="token builtin class-name">:</span> <span class="token number">146</span>
+    <span class="token punctuation">}</span>,
+    <span class="token string">&quot;faceAttributes&quot;</span><span class="token builtin class-name">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;gender&quot;</span><span class="token builtin class-name">:</span> <span class="token string">&quot;male&quot;</span>,
+        <span class="token string">&quot;age&quot;</span><span class="token builtin class-name">:</span> <span class="token number">37.0</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><p>利用上述<a href="https://japaneast.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236" target="_blank" rel="noopener noreferrer">Detect<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>的結果，畫出面部矩形</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token operator">%</span>matplotlib inline
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">from</span> matplotlib <span class="token keyword">import</span> patches
+<span class="token keyword">from</span> io <span class="token keyword">import</span> BytesIO
+
+image <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>image_path<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>image<span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.6</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> face <span class="token keyword">in</span> faces<span class="token punctuation">:</span>
+    fr <span class="token operator">=</span> face<span class="token punctuation">[</span><span class="token string">&quot;faceRectangle&quot;</span><span class="token punctuation">]</span>
+    fa <span class="token operator">=</span> face<span class="token punctuation">[</span><span class="token string">&quot;faceAttributes&quot;</span><span class="token punctuation">]</span>
+    origin <span class="token operator">=</span> <span class="token punctuation">(</span>fr<span class="token punctuation">[</span><span class="token string">&quot;left&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;top&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    p <span class="token operator">=</span> patches<span class="token punctuation">.</span>Rectangle<span class="token punctuation">(</span>
+        origin<span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;width&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;height&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">)</span>
+    ax<span class="token punctuation">.</span>axes<span class="token punctuation">.</span>add_patch<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+    plt<span class="token punctuation">.</span>text<span class="token punctuation">(</span>origin<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> origin<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;%s, %d&quot;</span><span class="token operator">%</span><span class="token punctuation">(</span>fa<span class="token punctuation">[</span><span class="token string">&quot;gender&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span>capitalize<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> fa<span class="token punctuation">[</span><span class="token string">&quot;age&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+             fontsize<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">,</span> weight<span class="token operator">=</span><span class="token string">&quot;bold&quot;</span><span class="token punctuation">,</span> va<span class="token operator">=</span><span class="token string">&quot;bottom&quot;</span><span class="token punctuation">)</span>
+_ <span class="token operator">=</span> plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token string">&quot;off&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><h6 id="result-2"><a href="#result-2" aria-hidden="true" class="header-anchor">#</a> Result</h6> <p><img src="/assets/img/output_7_0.c56c9667.png" alt="png"></p> <hr> <p>好，現在我們開始建立人臉的資料庫 <a href="https://japaneast.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244" target="_blank" rel="noopener noreferrer">PersonGroup- Create<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p><img src="/assets/img/15657025753185.61094e4d.jpg" alt=""></p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># PUT</span>
+<span class="token comment"># Query parameters</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'personGroupId'</span><span class="token punctuation">:</span> <span class="token string">'mypersongroup'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Headers</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/json'</span><span class="token punctuation">,</span>
+    <span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Request body</span>
+request_body <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'name'</span> <span class="token punctuation">:</span> <span class="token string">'group1'</span><span class="token punctuation">,</span>
+    <span class="token string">'userData'</span> <span class="token punctuation">:</span> <span class="token string">'user-provided data attached to the person group.'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Request URL</span>
+personGroup_request_URL <span class="token operator">=</span> <span class="token string">&quot;{0}persongroups/{1}&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">,</span> params<span class="token punctuation">[</span><span class="token string">'personGroupId'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>personGroup_request_URL<span class="token punctuation">)</span>
+
+</code></pre></div><h6 id="result-3"><a href="#result-3" aria-hidden="true" class="header-anchor">#</a> Result</h6> <div class="language- extra-class"><pre class="language-text"><code>https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/mypersongroup
+</code></pre></div><hr> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+
+<span class="token comment"># 唔知點解要加json.dumps(), 但上面唔洗</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>put<span class="token punctuation">(</span>personGroup_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>request_body<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 200的話代表正常, A successful call returns an empty response body.</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+<span class="token comment"># 不正常可能代表personGroup已存在</span>
+</code></pre></div><h6 id="result-4"><a href="#result-4" aria-hidden="true" class="header-anchor">#</a> Result</h6> <div class="language- extra-class"><pre class="language-text"><code>&lt;Response [409]&gt;
+</code></pre></div><p>可以利用 <a href="https://japaneast.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248/console" target="_blank" rel="noopener noreferrer">PersonGroup - List<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>查看現有的PersonGroup</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+
+<span class="token comment"># GET</span>
+<span class="token comment"># Query parameters</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'start'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'top'</span><span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Headers</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+personGroupList_request_URL <span class="token operator">=</span> <span class="token string">&quot;{0}persongroups&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">)</span>
+
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>personGroupList_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h6 id="result-5"><a href="#result-5" aria-hidden="true" class="header-anchor">#</a> Result</h6> <div class="language- extra-class"><pre class="language-text"><code>[
+    {
+      &quot;personGroupId&quot;: &quot;mypersongroup&quot;,
+      &quot;name&quot;: &quot;group1&quot;,
+      &quot;userData&quot;: &quot;user-provided data attached to the person group.&quot;
+    }
+]
+</code></pre></div><p>建立完PersonGroup後，要<a href="https://japaneast.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c" target="_blank" rel="noopener noreferrer">建立 PersonGroup Person<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>，PersonGroup-Person代表一個人的意思</p> <blockquote><p>建立一個PersonGroup Person- Dad</p></blockquote> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># POST</span>
+<span class="token comment"># Query parameters</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'personGroupId'</span><span class="token punctuation">:</span> <span class="token string">'mypersongroup'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Headers</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/json'</span><span class="token punctuation">,</span>
+    <span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Request body</span>
+request_body <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'name'</span> <span class="token punctuation">:</span> <span class="token string">'Dad'</span><span class="token punctuation">,</span>
+    <span class="token string">'userData'</span> <span class="token punctuation">:</span> <span class="token string">'only for demo'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Request URL</span>
+personGroupPersonCreate_request_URL <span class="token operator">=</span> <span class="token string">&quot;{0}persongroups/{1}/persons&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">,</span> params<span class="token punctuation">[</span><span class="token string">'personGroupId'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">#https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/{personGroupId}/persons</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>personGroupPersonCreate_request_URL<span class="token punctuation">)</span>
+
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonCreate_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>request_body<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">#如果成功會return personId</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><pre><code>https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/mypersongroup/persons
+{
+ &quot;personId&quot;: &quot;25364bb2-9eb4-4140-8852-0a99dd6ec833&quot;
+}
+</code></pre> <h3 id="將face添加到-persongroup-person"><a href="#將face添加到-persongroup-person" aria-hidden="true" class="header-anchor">#</a> 將Face添加到 PersonGroup Person</h3> <blockquote><p>將Dad的個人照片添加到上述已建立的PersonGroup Person - Dad</p></blockquote> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">from</span> IPython<span class="token punctuation">.</span>display <span class="token keyword">import</span> Image
+<span class="token keyword">from</span> IPython<span class="token punctuation">.</span>display <span class="token keyword">import</span> display
+
+image_1 <span class="token operator">=</span> Image<span class="token punctuation">(</span>filename<span class="token operator">=</span><span class="token string">'sample_data/PersonGroup/Family1-Dad/Family1-Dad1.jpg'</span><span class="token punctuation">)</span> 
+image_2 <span class="token operator">=</span> Image<span class="token punctuation">(</span>filename<span class="token operator">=</span><span class="token string">'sample_data/PersonGroup/Family1-Dad/Family1-Dad2.jpg'</span><span class="token punctuation">)</span> 
+image_3 <span class="token operator">=</span> Image<span class="token punctuation">(</span>filename<span class="token operator">=</span><span class="token string">'sample_data/PersonGroup/Family1-Dad/Family1-Dad3.jpg'</span><span class="token punctuation">)</span> 
+
+display<span class="token punctuation">(</span>image_1<span class="token punctuation">,</span> image_2<span class="token punctuation">,</span>image_3<span class="token punctuation">)</span>
+</code></pre></div><p><img src="/assets/img/output_17_0.d9d6e845.jpeg" alt="jpeg"></p> <p><img src="/assets/img/output_17_1.d14c77a1.jpeg" alt="jpeg"></p> <p><img src="/assets/img/output_17_2.2fc932b7.jpeg" alt="jpeg"></p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+
+<span class="token comment"># POST</span>
+<span class="token comment"># Query parameters</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'personGroupId'</span><span class="token punctuation">:</span> <span class="token string">'mypersongroup'</span><span class="token punctuation">,</span>
+    <span class="token string">'personId'</span><span class="token punctuation">:</span> <span class="token string">'25364bb2-9eb4-4140-8852-0a99dd6ec833'</span><span class="token punctuation">,</span>
+    <span class="token string">'userData'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'targetFace'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Headers</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/octet-stream'</span><span class="token punctuation">,</span>
+    <span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+image1_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'sample_data/PersonGroup/Family1-Dad/Family1-Dad1.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+image2_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'sample_data/PersonGroup/Family1-Dad/Family1-Dad2.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+image3_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'sample_data/PersonGroup/Family1-Dad/Family1-Dad3.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># Request URL</span>
+personGroupPersonAddFace_request_URL <span class="token operator">=</span> <span class="token string">&quot;{0}persongroups/{1}/persons/{2}/persistedFaces&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">,</span> params<span class="token punctuation">[</span><span class="token string">'personGroupId'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>params<span class="token punctuation">[</span><span class="token string">'personId'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+response1 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonAddFace_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>image1_data<span class="token punctuation">)</span>
+response2 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonAddFace_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>image2_data<span class="token punctuation">)</span>
+response3 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonAddFace_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>image3_data<span class="token punctuation">)</span>
+
+<span class="token comment">#成功會return翻個persistedFaceId</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response1<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response2<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response3<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h6 id="result-6"><a href="#result-6" aria-hidden="true" class="header-anchor">#</a> Result</h6> <div class="language- extra-class"><pre class="language-text"><code>{
+    &quot;persistedFaceId&quot;: &quot;9818378c-c83d-4504-9b3f-1e279a69de60&quot;
+}
+{
+    &quot;persistedFaceId&quot;: &quot;b45f2795-af2c-49bd-b827-ea067b6527b1&quot;
+}
+{
+    &quot;persistedFaceId&quot;: &quot;676f087f-5692-485c-a97c-7dca43c37081&quot;
+}
+</code></pre></div><hr> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># 可以check翻</span>
+<span class="token comment"># GET</span>
+<span class="token comment"># Query parameters</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'start'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'top'</span><span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Headers</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+personGroupPersonList_request_URL <span class="token operator">=</span> <span class="token string">&quot;{0}persongroups/mypersongroup/persons&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">)</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>personGroupPersonList_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">#可以見到Dad 有3個persistedFaceId, 代表有3張相(face)</span>
+</code></pre></div><h6 id="result-7"><a href="#result-7" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/mypersongroup/persons?start=&amp;top=
+[
+ {
+  &quot;personId&quot;: &quot;7272791b-0f6c-41f9-a764-ba4e51e71e61&quot;,
+  &quot;persistedFaceIds&quot;: [
+   &quot;1ca1f7e7-4f53-4a0c-a7ee-7227c4288190&quot;,
+   &quot;7dd6f337-77a6-462c-9b90-c99df6efebe4&quot;,
+   &quot;de454eef-aaa4-44ed-8a46-0e4b60a03e9c&quot;
+  ],
+  &quot;name&quot;: &quot;Kwan&quot;,
+  &quot;userData&quot;: &quot;only for demo&quot;
+ },
+ {
+  &quot;personId&quot;: &quot;977ce31e-8ec6-4866-bd42-de8309ea11dd&quot;,
+  &quot;persistedFaceIds&quot;: [
+   &quot;96f6aae9-9840-40be-91cf-4140a31517d3&quot;,
+   &quot;b195a1c2-503d-47ae-97b3-8a861b450853&quot;,
+   &quot;e475644d-02fb-45f0-8038-33de374507ab&quot;
+  ],
+  &quot;name&quot;: &quot;Samson&quot;,
+  &quot;userData&quot;: &quot;demo&quot;
+ },
+ {
+  &quot;personId&quot;: &quot;f5311f19-8d03-41d3-b29c-488213ca70b5&quot;,
+  &quot;persistedFaceIds&quot;: [
+   &quot;3acdd591-c11e-4797-a7fe-301c2b32b37f&quot;,
+   &quot;7cd89da5-45f3-483d-adb3-23c4d077c66f&quot;
+  ],
+  &quot;name&quot;: &quot;Wing&quot;,
+  &quot;userData&quot;: &quot;demo&quot;
+ }
+]
+</code></pre> <h2 id="persongroup-train"><a href="#persongroup-train" aria-hidden="true" class="header-anchor">#</a> PersonGroup - Train</h2> <blockquote><p>每次加完face, 都要train一次先用到，train要時間，不是即時完成</p></blockquote> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+
+<span class="token comment"># POST</span>
+<span class="token comment"># Query parameters</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'personGroupId'</span><span class="token punctuation">:</span> <span class="token string">'mypersongroup'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Headers</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/{personGroupId}/train</span>
+
+<span class="token comment"># Request URL</span>
+personGroupTrain_request_URL <span class="token operator">=</span> <span class="token string">&quot;{0}persongroups/{1}/train&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">,</span> params<span class="token punctuation">[</span><span class="token string">'personGroupId'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupTrain_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+<span class="token comment">#回應202 成功調用將返回一個空的JSON正文。</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+</code></pre></div><h6 id="result-8"><a href="#result-8" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>&lt;Response [202]&gt;
+</code></pre> <p>可以用 PersonGroup - Get Training Status，查看training的進度</p> <div class="language-python extra-class"><pre class="language-python"><code>personGroupTrainStatus_request_URL <span class="token operator">=</span> <span class="token string">&quot;{0}persongroups/{1}/training&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">,</span> params<span class="token punctuation">[</span><span class="token string">'personGroupId'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>personGroupTrainStatus_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+</code></pre></div><h6 id="result-9"><a href="#result-9" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>{
+ &quot;status&quot;: &quot;succeeded&quot;,
+ &quot;createdDateTime&quot;: &quot;2018-12-19T10:36:37.0117456Z&quot;,
+ &quot;lastActionDateTime&quot;: &quot;2018-12-19T10:36:37.1967762Z&quot;,
+ &quot;message&quot;: null
+}
+</code></pre> <h3 id="識別"><a href="#識別" aria-hidden="true" class="header-anchor">#</a> 識別</h3> <blockquote><p>照片-&gt; Face - Detect 得出相片中每個face的id -&gt; 拎face id用Face -Identify分析出似PersonGroup入面既邊個</p></blockquote> <div class="language-python extra-class"><pre class="language-python"><code>headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span> <span class="token string">'Content-Type'</span><span class="token punctuation">:</span><span class="token string">'application/octet-stream'</span><span class="token punctuation">}</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'returnFaceId'</span><span class="token punctuation">:</span> <span class="token string">'true'</span><span class="token punctuation">,</span>
+    <span class="token string">'returnFaceLandmarks'</span><span class="token punctuation">:</span> <span class="token string">'false'</span>
+<span class="token punctuation">}</span>
+image_path <span class="token operator">=</span> <span class="token string">'sample_data/test/identification1.jpg'</span>
+image_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>image_path<span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>detect_api_url<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>image_data<span class="token punctuation">)</span>
+faces <span class="token operator">=</span> response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>faces<span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h6 id="result-10"><a href="#result-10" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>[
+ {
+  &quot;faceId&quot;: &quot;1a71a403-8618-4e8d-a29d-783c606498c1&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 202,
+   &quot;left&quot;: 302,
+   &quot;width&quot;: 113,
+   &quot;height&quot;: 113
+  }
+ },
+ {
+  &quot;faceId&quot;: &quot;2c95e02a-032d-4ab8-b0c4-379d32a06e40&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 238,
+   &quot;left&quot;: 398,
+   &quot;width&quot;: 91,
+   &quot;height&quot;: 91
+  }
+ },
+ {
+  &quot;faceId&quot;: &quot;1e63f32a-df7d-463c-ab69-dbf55174faad&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 238,
+   &quot;left&quot;: 495,
+   &quot;width&quot;: 82,
+   &quot;height&quot;: 82
+  }
+ },
+ {
+  &quot;faceId&quot;: &quot;7f12211f-c3ff-4ea8-bfae-109782389849&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 162,
+   &quot;left&quot;: 211,
+   &quot;width&quot;: 81,
+   &quot;height&quot;: 81
+  }
+ }
+]
+</code></pre> <p>顯示翻出來</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token operator">%</span>matplotlib inline
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">from</span> matplotlib <span class="token keyword">import</span> patches
+<span class="token keyword">from</span> io <span class="token keyword">import</span> BytesIO
+
+image <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'sample_data/test/identification1.jpg'</span><span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>image<span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.6</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> face <span class="token keyword">in</span> faces<span class="token punctuation">:</span>
+    fr <span class="token operator">=</span> face<span class="token punctuation">[</span><span class="token string">&quot;faceRectangle&quot;</span><span class="token punctuation">]</span>
+    origin <span class="token operator">=</span> <span class="token punctuation">(</span>fr<span class="token punctuation">[</span><span class="token string">&quot;left&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;top&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    p <span class="token operator">=</span> patches<span class="token punctuation">.</span>Rectangle<span class="token punctuation">(</span>
+        origin<span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;width&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;height&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">)</span>
+    ax<span class="token punctuation">.</span>axes<span class="token punctuation">.</span>add_patch<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+<span class="token comment">#     plt.text(origin[0], origin[1], &quot;%s, %d&quot;%(fa[&quot;gender&quot;].capitalize(), fa[&quot;age&quot;]),</span>
+<span class="token comment">#              fontsize=20, weight=&quot;bold&quot;, va=&quot;bottom&quot;)</span>
+_ <span class="token operator">=</span> plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token string">&quot;off&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><p><img src="/assets/img/output_27_0.d1881785.png" alt="png"></p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># 取得所有faceId</span>
+faceIds <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> face <span class="token keyword">in</span> faces<span class="token punctuation">:</span>
+  faceIds<span class="token punctuation">.</span>append<span class="token punctuation">(</span>face<span class="token punctuation">[</span><span class="token string">'faceId'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+faceIds
+</code></pre></div><h6 id="result-11"><a href="#result-11" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>['b83e9725-2102-4349-bc60-fd53d8886f2e',
+ 'b3ff388e-bbb3-49e7-b391-ee76f42e3721',
+ '26a9f911-fcd0-4b90-a711-2b057dd9fd7a',
+ '01c73367-836b-4081-8fc2-dfc10a88d3e3']
+</code></pre> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># POST</span>
+<span class="token comment"># Query parameters</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Headers</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/json'</span><span class="token punctuation">,</span>
+    <span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Request body</span>
+request_body <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;personGroupId&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;mypersongroup&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;faceIds&quot;</span><span class="token punctuation">:</span>faceIds<span class="token punctuation">,</span>
+    <span class="token string">&quot;maxNumOfCandidatesReturned&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;confidenceThreshold&quot;</span><span class="token punctuation">:</span> <span class="token number">0.5</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Request URL</span>
+faceIdentify_request_URL <span class="token operator">=</span> <span class="token string">&quot;{0}identify&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">)</span>
+
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>faceIdentify_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>request_body<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 結果顯示&quot;faceId&quot;: &quot;b83e9725-2102-4349-bc60-fd53d8886f2e&quot; 與 &quot;personId&quot;: &quot;25364bb2-9eb4-4140-8852-0a99dd6ec833&quot;(Dad個id) 有0.80474 相似</span>
+</code></pre></div><h6 id="result-12"><a href="#result-12" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>https://japaneast.api.cognitive.microsoft.com/face/v1.0/identify
+[
+ {
+  &quot;faceId&quot;: &quot;b83e9725-2102-4349-bc60-fd53d8886f2e&quot;,
+  &quot;candidates&quot;: [
+   {
+    &quot;personId&quot;: &quot;25364bb2-9eb4-4140-8852-0a99dd6ec833&quot;,
+    &quot;confidence&quot;: 0.80474
+   }
+  ]
+ },
+ {
+  &quot;faceId&quot;: &quot;b3ff388e-bbb3-49e7-b391-ee76f42e3721&quot;,
+  &quot;candidates&quot;: []
+ },
+ {
+  &quot;faceId&quot;: &quot;26a9f911-fcd0-4b90-a711-2b057dd9fd7a&quot;,
+  &quot;candidates&quot;: []
+ },
+ {
+  &quot;faceId&quot;: &quot;01c73367-836b-4081-8fc2-dfc10a88d3e3&quot;,
+  &quot;candidates&quot;: []
+ }
+]
+</code></pre> <h1 id="實作"><a href="#實作" aria-hidden="true" class="header-anchor">#</a> 實作</h1> <blockquote><p>建立2個PersonGroup Person</p></blockquote> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># POST</span>
+<span class="token comment"># Query parameters</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'personGroupId'</span><span class="token punctuation">:</span> <span class="token string">'mypersongroup'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Headers</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/json'</span><span class="token punctuation">,</span>
+    <span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Request body</span>
+request_body1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'name'</span> <span class="token punctuation">:</span> <span class="token string">'Wing'</span><span class="token punctuation">,</span>
+    <span class="token string">'userData'</span> <span class="token punctuation">:</span> <span class="token string">'demo'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+request_body2 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'name'</span> <span class="token punctuation">:</span> <span class="token string">'Samson'</span><span class="token punctuation">,</span>
+    <span class="token string">'userData'</span> <span class="token punctuation">:</span> <span class="token string">'demo'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Request URL</span>
+personGroupPersonCreate_request_URL <span class="token operator">=</span> <span class="token string">&quot;{0}persongroups/{1}/persons&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">,</span> params<span class="token punctuation">[</span><span class="token string">'personGroupId'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment">#https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/{personGroupId}/persons</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>personGroupPersonCreate_request_URL<span class="token punctuation">)</span>
+
+response1 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonCreate_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>request_body1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">#如果成功會return personId</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response1<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+response2 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonCreate_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>request_body2<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response2<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+</code></pre></div><h6 id="result-13"><a href="#result-13" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>https://japaneast.api.cognitive.microsoft.com/face/v1.0/persongroups/mypersongroup/persons
+{
+ &quot;personId&quot;: &quot;f5311f19-8d03-41d3-b29c-488213ca70b5&quot;
+}
+{
+ &quot;personId&quot;: &quot;977ce31e-8ec6-4866-bd42-de8309ea11dd&quot;
+}
+</code></pre> <h3 id="將face添加到-persongroup-person-2"><a href="#將face添加到-persongroup-person-2" aria-hidden="true" class="header-anchor">#</a> 將Face添加到 PersonGroup Person</h3> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+
+<span class="token comment"># POST</span>
+<span class="token comment"># Query parameters</span>
+params_wing <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'personGroupId'</span><span class="token punctuation">:</span> <span class="token string">'mypersongroup'</span><span class="token punctuation">,</span>
+    <span class="token string">'personId'</span><span class="token punctuation">:</span> <span class="token string">'f5311f19-8d03-41d3-b29c-488213ca70b5'</span><span class="token punctuation">,</span>
+    <span class="token string">'userData'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'targetFace'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+params_samson <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'personGroupId'</span><span class="token punctuation">:</span> <span class="token string">'mypersongroup'</span><span class="token punctuation">,</span>
+    <span class="token string">'personId'</span><span class="token punctuation">:</span> <span class="token string">'977ce31e-8ec6-4866-bd42-de8309ea11dd'</span><span class="token punctuation">,</span>
+    <span class="token string">'userData'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token string">'targetFace'</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token comment"># Headers</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/octet-stream'</span><span class="token punctuation">,</span>
+    <span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+wing_image0_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'PersonGroup/wing/wing_0.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+wing_image1_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'PersonGroup/wing/wing_1.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+wing_image2_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'PersonGroup/wing/wing_2.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+samson_image0_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'PersonGroup/samson/samson_0.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+samson_image1_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'PersonGroup/samson/samson_1.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+samson_image2_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'PersonGroup/samson/samson_2.jpg'</span><span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+
+<span class="token comment"># Request URL</span>
+personGroupPersonAddFace_request_URL_wing <span class="token operator">=</span> <span class="token string">&quot;{0}persongroups/{1}/persons/{2}/persistedFaces&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">,</span> params_wing<span class="token punctuation">[</span><span class="token string">'personGroupId'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>params_wing<span class="token punctuation">[</span><span class="token string">'personId'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+wing_response0 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonAddFace_request_URL_wing<span class="token punctuation">,</span> params<span class="token operator">=</span>params_wing<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>wing_image0_data<span class="token punctuation">)</span>
+wing_response1 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonAddFace_request_URL_wing<span class="token punctuation">,</span> params<span class="token operator">=</span>params_wing<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>wing_image1_data<span class="token punctuation">)</span>
+wing_response2 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonAddFace_request_URL_wing<span class="token punctuation">,</span> params<span class="token operator">=</span>params_wing<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>wing_image2_data<span class="token punctuation">)</span>
+
+personGroupPersonAddFace_request_URL_samson <span class="token operator">=</span> <span class="token string">&quot;{0}persongroups/{1}/persons/{2}/persistedFaces&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">,</span> params_samson<span class="token punctuation">[</span><span class="token string">'personGroupId'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>params_samson<span class="token punctuation">[</span><span class="token string">'personId'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+samson_response0 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonAddFace_request_URL_samson<span class="token punctuation">,</span> params<span class="token operator">=</span>params_samson<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>samson_image0_data<span class="token punctuation">)</span>
+samson_response1 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonAddFace_request_URL_samson<span class="token punctuation">,</span> params<span class="token operator">=</span>params_samson<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>samson_image1_data<span class="token punctuation">)</span>
+samson_response2 <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>personGroupPersonAddFace_request_URL_samson<span class="token punctuation">,</span> params<span class="token operator">=</span>params_samson<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>samson_image2_data<span class="token punctuation">)</span>
+
+<span class="token comment">#成功會return翻個persistedFaceId</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>wing_response0<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>wing_response1<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>wing_response2<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>samson_response0<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>samson_response1<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>samson_response2<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h6 id="result-14"><a href="#result-14" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>{
+ &quot;error&quot;: {
+  &quot;code&quot;: &quot;InvalidImage&quot;,
+  &quot;message&quot;: &quot;No face detected in the image.&quot;
+ }
+}
+{
+ &quot;persistedFaceId&quot;: &quot;7cd89da5-45f3-483d-adb3-23c4d077c66f&quot;
+}
+{
+ &quot;persistedFaceId&quot;: &quot;3acdd591-c11e-4797-a7fe-301c2b32b37f&quot;
+}
+{
+ &quot;persistedFaceId&quot;: &quot;96f6aae9-9840-40be-91cf-4140a31517d3&quot;
+}
+{
+ &quot;persistedFaceId&quot;: &quot;b195a1c2-503d-47ae-97b3-8a861b450853&quot;
+}
+{
+ &quot;persistedFaceId&quot;: &quot;e475644d-02fb-45f0-8038-33de374507ab&quot;
+}
+</code></pre> <p>要train一次 詳細睇上面</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> json
+detect_api_url <span class="token operator">=</span> face_api_url <span class="token operator">+</span> <span class="token string">'detect/'</span>
+
+headers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span> <span class="token string">'Content-Type'</span><span class="token punctuation">:</span><span class="token string">'application/octet-stream'</span><span class="token punctuation">}</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'returnFaceId'</span><span class="token punctuation">:</span> <span class="token string">'true'</span><span class="token punctuation">,</span>
+    <span class="token string">'returnFaceLandmarks'</span><span class="token punctuation">:</span> <span class="token string">'false'</span><span class="token punctuation">,</span>
+    <span class="token string">'returnFaceAttributes'</span><span class="token punctuation">:</span> <span class="token string">'age,gender'</span>
+<span class="token punctuation">}</span>
+image_path <span class="token operator">=</span> <span class="token string">'IMG_1834.jpg'</span>
+image_data <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>image_path<span class="token punctuation">,</span> <span class="token string">'rb'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>detect_api_url<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>image_data<span class="token punctuation">)</span>
+faces <span class="token operator">=</span> response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>faces<span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h6 id="result-15"><a href="#result-15" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>[
+ {
+  &quot;faceId&quot;: &quot;50ce7fad-931a-4b54-af1d-034c5e0b9175&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 444,
+   &quot;left&quot;: 12,
+   &quot;width&quot;: 202,
+   &quot;height&quot;: 202
+  },
+  &quot;faceAttributes&quot;: {
+   &quot;gender&quot;: &quot;male&quot;,
+   &quot;age&quot;: 22.0
+  }
+ },
+ {
+  &quot;faceId&quot;: &quot;af5c5aca-0765-4e33-83b6-e20b158591d8&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 619,
+   &quot;left&quot;: 1031,
+   &quot;width&quot;: 169,
+   &quot;height&quot;: 169
+  },
+  &quot;faceAttributes&quot;: {
+   &quot;gender&quot;: &quot;male&quot;,
+   &quot;age&quot;: 19.0
+  }
+ },
+ {
+  &quot;faceId&quot;: &quot;b756184c-cbac-4449-a825-c439f9c47d3b&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 545,
+   &quot;left&quot;: 463,
+   &quot;width&quot;: 165,
+   &quot;height&quot;: 165
+  },
+  &quot;faceAttributes&quot;: {
+   &quot;gender&quot;: &quot;male&quot;,
+   &quot;age&quot;: 22.0
+  }
+ },
+ {
+  &quot;faceId&quot;: &quot;5b26feff-d2cf-4dcf-ba4d-abac34abd001&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 451,
+   &quot;left&quot;: 255,
+   &quot;width&quot;: 131,
+   &quot;height&quot;: 131
+  },
+  &quot;faceAttributes&quot;: {
+   &quot;gender&quot;: &quot;male&quot;,
+   &quot;age&quot;: 23.0
+  }
+ },
+ {
+  &quot;faceId&quot;: &quot;8105c2e4-d875-4d9f-96f7-7c880c3f7dd8&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 660,
+   &quot;left&quot;: 790,
+   &quot;width&quot;: 130,
+   &quot;height&quot;: 130
+  },
+  &quot;faceAttributes&quot;: {
+   &quot;gender&quot;: &quot;male&quot;,
+   &quot;age&quot;: 24.0
+  }
+ },
+ {
+  &quot;faceId&quot;: &quot;116b84e2-b4e4-4006-bc6d-3a427b07926a&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 351,
+   &quot;left&quot;: 360,
+   &quot;width&quot;: 103,
+   &quot;height&quot;: 103
+  },
+  &quot;faceAttributes&quot;: {
+   &quot;gender&quot;: &quot;male&quot;,
+   &quot;age&quot;: 22.0
+  }
+ },
+ {
+  &quot;faceId&quot;: &quot;088044e1-313c-4b3c-af5b-8c1b832c071b&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 556,
+   &quot;left&quot;: 657,
+   &quot;width&quot;: 90,
+   &quot;height&quot;: 90
+  },
+  &quot;faceAttributes&quot;: {
+   &quot;gender&quot;: &quot;female&quot;,
+   &quot;age&quot;: 19.0
+  }
+ },
+ {
+  &quot;faceId&quot;: &quot;eaa09b68-b769-43a0-9a2c-668bd777cefa&quot;,
+  &quot;faceRectangle&quot;: {
+   &quot;top&quot;: 488,
+   &quot;left&quot;: 765,
+   &quot;width&quot;: 80,
+   &quot;height&quot;: 80
+  },
+  &quot;faceAttributes&quot;: {
+   &quot;gender&quot;: &quot;female&quot;,
+   &quot;age&quot;: 11.0
+  }
+ }
+]
+</code></pre> <p>利用上述結果，畫出面部矩形</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token operator">%</span>matplotlib inline
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">from</span> matplotlib <span class="token keyword">import</span> patches
+<span class="token keyword">from</span> io <span class="token keyword">import</span> BytesIO
+
+image <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>image_path<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>image<span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.6</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> face <span class="token keyword">in</span> faces<span class="token punctuation">:</span>
+    fr <span class="token operator">=</span> face<span class="token punctuation">[</span><span class="token string">&quot;faceRectangle&quot;</span><span class="token punctuation">]</span>
+    fa <span class="token operator">=</span> face<span class="token punctuation">[</span><span class="token string">&quot;faceAttributes&quot;</span><span class="token punctuation">]</span>
+    origin <span class="token operator">=</span> <span class="token punctuation">(</span>fr<span class="token punctuation">[</span><span class="token string">&quot;left&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;top&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    p <span class="token operator">=</span> patches<span class="token punctuation">.</span>Rectangle<span class="token punctuation">(</span>
+        origin<span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;width&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;height&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">)</span>
+    ax<span class="token punctuation">.</span>axes<span class="token punctuation">.</span>add_patch<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+_ <span class="token operator">=</span> plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token string">&quot;off&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><h6 id="result-16"><a href="#result-16" aria-hidden="true" class="header-anchor">#</a> Result</h6> <p><img src="/assets/img/output_36_0.106ec5f8.png" alt="png"></p> <p>取得所有faceId</p> <div class="language-python extra-class"><pre class="language-python"><code>faceIds <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> face <span class="token keyword">in</span> faces<span class="token punctuation">:</span>
+  faceIds<span class="token punctuation">.</span>append<span class="token punctuation">(</span>face<span class="token punctuation">[</span><span class="token string">'faceId'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+faceIds
+</code></pre></div><h6 id="result-17"><a href="#result-17" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>['50ce7fad-931a-4b54-af1d-034c5e0b9175',
+ 'af5c5aca-0765-4e33-83b6-e20b158591d8',
+ 'b756184c-cbac-4449-a825-c439f9c47d3b',
+ '5b26feff-d2cf-4dcf-ba4d-abac34abd001',
+ '8105c2e4-d875-4d9f-96f7-7c880c3f7dd8',
+ '116b84e2-b4e4-4006-bc6d-3a427b07926a',
+ '088044e1-313c-4b3c-af5b-8c1b832c071b',
+ 'eaa09b68-b769-43a0-9a2c-668bd777cefa']
+</code></pre> <hr> <p>用<code>faceId</code> 搵翻 對應 <code>personId</code> 的相似度</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># POST</span>
+<span class="token comment"># Query parameters</span>
+params <span class="token operator">=</span> <span class="token punctuation">{</span>
+    
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Headers</span>
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/json'</span><span class="token punctuation">,</span>
+    <span class="token string">'Ocp-Apim-Subscription-Key'</span><span class="token punctuation">:</span> subscription_key<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Request body</span>
+request_body <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;personGroupId&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;mypersongroup&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;faceIds&quot;</span><span class="token punctuation">:</span>faceIds<span class="token punctuation">,</span>
+    <span class="token string">&quot;maxNumOfCandidatesReturned&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;confidenceThreshold&quot;</span><span class="token punctuation">:</span> <span class="token number">0.6</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># Request URL</span>
+faceIdentify_request_URL <span class="token operator">=</span> <span class="token string">&quot;{0}identify&quot;</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>face_api_url<span class="token punctuation">)</span>
+
+response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>faceIdentify_request_URL<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> data<span class="token operator">=</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>request_body<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>url<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> indent<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h6 id="result-18"><a href="#result-18" aria-hidden="true" class="header-anchor">#</a> Result</h6> <pre><code>https://japaneast.api.cognitive.microsoft.com/face/v1.0/identify
+[
+ {
+  &quot;faceId&quot;: &quot;50ce7fad-931a-4b54-af1d-034c5e0b9175&quot;,
+  &quot;candidates&quot;: []
+ },
+ {
+  &quot;faceId&quot;: &quot;af5c5aca-0765-4e33-83b6-e20b158591d8&quot;,
+  &quot;candidates&quot;: []
+ },
+ {
+  &quot;faceId&quot;: &quot;b756184c-cbac-4449-a825-c439f9c47d3b&quot;,
+  &quot;candidates&quot;: [
+   {
+    &quot;personId&quot;: &quot;21db0faf-38ae-4170-8103-fb7d0a39117a&quot;,
+    &quot;confidence&quot;: 0.7223
+   }
+  ]
+ },
+ {
+  &quot;faceId&quot;: &quot;5b26feff-d2cf-4dcf-ba4d-abac34abd001&quot;,
+  &quot;candidates&quot;: []
+ },
+ {
+  &quot;faceId&quot;: &quot;8105c2e4-d875-4d9f-96f7-7c880c3f7dd8&quot;,
+  &quot;candidates&quot;: []
+ },
+ {
+  &quot;faceId&quot;: &quot;116b84e2-b4e4-4006-bc6d-3a427b07926a&quot;,
+  &quot;candidates&quot;: []
+ },
+ {
+  &quot;faceId&quot;: &quot;088044e1-313c-4b3c-af5b-8c1b832c071b&quot;,
+  &quot;candidates&quot;: []
+ },
+ {
+  &quot;faceId&quot;: &quot;eaa09b68-b769-43a0-9a2c-668bd777cefa&quot;,
+  &quot;candidates&quot;: []
+ }
+]
+</code></pre> <p>顯示翻出來</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token operator">%</span>matplotlib inline
+<span class="token keyword">import</span> matplotlib<span class="token punctuation">.</span>pyplot <span class="token keyword">as</span> plt
+<span class="token keyword">from</span> PIL <span class="token keyword">import</span> Image
+<span class="token keyword">from</span> matplotlib <span class="token keyword">import</span> patches
+<span class="token keyword">from</span> io <span class="token keyword">import</span> BytesIO
+
+<span class="token comment"># 為了方便，手動將personId 炒係到</span>
+wing_personId <span class="token operator">=</span> <span class="token string">&quot;21db0faf-38ae-4170-8103-fb7d0a39117a&quot;</span><span class="token punctuation">;</span>
+samsonn_personId <span class="token operator">=</span> <span class="token string">&quot;977ce31e-8ec6-4866-bd42-de8309ea11dd&quot;</span><span class="token punctuation">;</span>
+knaw_personId <span class="token operator">=</span> <span class="token string">'7272791b-0f6c-41f9-a764-ba4e51e71e61'</span><span class="token punctuation">;</span>
+response_json <span class="token operator">=</span> response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+image <span class="token operator">=</span> Image<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>image_path<span class="token punctuation">)</span>
+plt<span class="token punctuation">.</span>figure<span class="token punctuation">(</span>figsize<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ax <span class="token operator">=</span> plt<span class="token punctuation">.</span>imshow<span class="token punctuation">(</span>image<span class="token punctuation">,</span> alpha<span class="token operator">=</span><span class="token number">0.6</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> face <span class="token keyword">in</span> faces<span class="token punctuation">:</span>
+    fr <span class="token operator">=</span> face<span class="token punctuation">[</span><span class="token string">&quot;faceRectangle&quot;</span><span class="token punctuation">]</span>
+    fa <span class="token operator">=</span> face<span class="token punctuation">[</span><span class="token string">&quot;faceAttributes&quot;</span><span class="token punctuation">]</span>
+    origin <span class="token operator">=</span> <span class="token punctuation">(</span>fr<span class="token punctuation">[</span><span class="token string">&quot;left&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;top&quot;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    p <span class="token operator">=</span> patches<span class="token punctuation">.</span>Rectangle<span class="token punctuation">(</span>
+        origin<span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;width&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fr<span class="token punctuation">[</span><span class="token string">&quot;height&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> fill<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">,</span> linewidth<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> color<span class="token operator">=</span><span class="token string">'b'</span><span class="token punctuation">)</span>
+    ax<span class="token punctuation">.</span>axes<span class="token punctuation">.</span>add_patch<span class="token punctuation">(</span>p<span class="token punctuation">)</span>
+    
+    <span class="token keyword">for</span> r <span class="token keyword">in</span> response_json<span class="token punctuation">:</span>
+        <span class="token keyword">if</span>  face<span class="token punctuation">[</span><span class="token string">'faceId'</span><span class="token punctuation">]</span><span class="token operator">==</span>r<span class="token punctuation">[</span><span class="token string">'faceId'</span><span class="token punctuation">]</span> <span class="token keyword">and</span> <span class="token builtin">len</span><span class="token punctuation">(</span>r<span class="token punctuation">[</span><span class="token string">'candidates'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> r<span class="token punctuation">[</span><span class="token string">'candidates'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'personId'</span><span class="token punctuation">]</span> <span class="token operator">==</span> wing_personId<span class="token punctuation">:</span>
+                plt<span class="token punctuation">.</span>text<span class="token punctuation">(</span>origin<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> origin<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;%s, %s&quot;</span><span class="token operator">%</span><span class="token punctuation">(</span><span class="token string">&quot;wing&quot;</span><span class="token punctuation">,</span>r<span class="token punctuation">[</span><span class="token string">'candidates'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'confidence'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> weight<span class="token operator">=</span><span class="token string">&quot;bold&quot;</span><span class="token punctuation">,</span> va<span class="token operator">=</span><span class="token string">&quot;bottom&quot;</span><span class="token punctuation">)</span>
+                <span class="token keyword">break</span>
+            <span class="token keyword">elif</span> r<span class="token punctuation">[</span><span class="token string">'candidates'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'personId'</span><span class="token punctuation">]</span> <span class="token operator">==</span> samsonn_personId<span class="token punctuation">:</span>
+                plt<span class="token punctuation">.</span>text<span class="token punctuation">(</span>origin<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> origin<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;%s, %s&quot;</span><span class="token operator">%</span><span class="token punctuation">(</span><span class="token string">&quot;samson&quot;</span><span class="token punctuation">,</span>r<span class="token punctuation">[</span><span class="token string">'candidates'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'confidence'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> weight<span class="token operator">=</span><span class="token string">&quot;bold&quot;</span><span class="token punctuation">,</span> va<span class="token operator">=</span><span class="token string">&quot;bottom&quot;</span><span class="token punctuation">)</span>
+            <span class="token keyword">elif</span> r<span class="token punctuation">[</span><span class="token string">'candidates'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'personId'</span><span class="token punctuation">]</span> <span class="token operator">==</span> knaw_personId<span class="token punctuation">:</span>
+                plt<span class="token punctuation">.</span>text<span class="token punctuation">(</span>origin<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> origin<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">&quot;%s, %s&quot;</span><span class="token operator">%</span><span class="token punctuation">(</span><span class="token string">&quot;knaw&quot;</span><span class="token punctuation">,</span>r<span class="token punctuation">[</span><span class="token string">'candidates'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'confidence'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>fontsize<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> weight<span class="token operator">=</span><span class="token string">&quot;bold&quot;</span><span class="token punctuation">,</span> va<span class="token operator">=</span><span class="token string">&quot;bottom&quot;</span><span class="token punctuation">)</span>
+                <span class="token keyword">break</span>
+            
+
+_ <span class="token operator">=</span> plt<span class="token punctuation">.</span>axis<span class="token punctuation">(</span><span class="token string">&quot;off&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><h6 id="result-19"><a href="#result-19" aria-hidden="true" class="header-anchor">#</a> Result</h6> <p><img src="/assets/img/output_39_0.88c195ad.png" alt="png"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">8/13/2019, 10:01:08 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/content/Other/MacOS Automator + Applescript solution for exporting docx to pdf.html" class="prev">
+          MacOS Automator + Applescript solution for exporting docx to pdf
+        </a></span> <span class="next"><a href="/content/Other/MongoDB.html">
+          MongoDB
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.7e089e31.js" defer></script><script src="/assets/js/2.c4ed3192.js" defer></script><script src="/assets/js/12.8ae9fdae.js" defer></script>
+  </body>
+</html>
