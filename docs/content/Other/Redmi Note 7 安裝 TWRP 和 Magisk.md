@@ -9,7 +9,7 @@ twrp 不能OTA更新系統，比較麻煩
 參入 tg群 https://t.me/OrangeFoxChat
 
 `/list`
-![-w408](media/15768514977467.jpg)
+![-w408](./media/15768514977467.jpg)
 
 找到手機型號完去 [https://files.orangefox.tech/OrangeFox-Stable/]() 找到下載
 
