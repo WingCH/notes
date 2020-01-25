@@ -46,12 +46,12 @@ class ViewController: UIViewController {
 
 ![-w1266](./media/15799492452055.jpg)
 ![-w1280](./media/15799494802603.jpg)
-![-w1178](media/15799496067359.jpg)
+![-w1178](./media/15799496067359.jpg)
 > Bundle Identifier
 
-![-w1880](media/15799496345726.jpg)
+![-w1880](./media/15799496345726.jpg)
 
-![-w623](media/15799529423040.jpg)
+![-w623](./media/15799529423040.jpg)
 
 ```bash
 pod init
@@ -81,7 +81,7 @@ pod install
 ![-w770](./media/15799533567528.jpg)
 
 
-![-w826](media/15799533896587.jpg)
+![-w826](./media/15799533896587.jpg)
 
 > 運行一次
 
