@@ -8,7 +8,7 @@
 
 [source code](https://github.com/WingCH/try-promises-kit)
 
-![](./media/2020-02-04 13.44.56.gif)
+![](./media/2020-02-04_13.44.56.gif)
 
 
 ---
