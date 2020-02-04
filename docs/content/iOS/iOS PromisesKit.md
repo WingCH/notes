@@ -6,6 +6,8 @@
 >
 >[Swift - 异步编程库PromiseKit使用详解1（安装配置、基本用法）](https://www.hangge.com/blog/cache/detail_2231.html)
 
+[source code](https://github.com/WingCH/try-promises-kit)
+
 ![](./media/2020-02-04 13.44.56.gif)
 
 
