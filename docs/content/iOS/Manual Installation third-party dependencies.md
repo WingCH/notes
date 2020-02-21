@@ -6,7 +6,7 @@
 
 一開始新建一個Project
 
-![image-20200221135929638](/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221135929638.png)
+![image-20200221135929638](./media/image-20200221135929638.png)
 
 下載 [TimOliver/TOCropViewController](https://github.com/TimOliver/TOCropViewController)
 
@@ -56,36 +56,36 @@ git clone https://github.com/TimOliver/TOCropViewController.git
 
 在剛剛新建的Project 點擊 `Add Files to "xxx"...`
 
-<img src="/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221141329728.png" alt="image-20200221141329728" style="zoom:33%;" />
+<img src="./media/image-20200221141329728.png" alt="image-20200221141329728" style="zoom:33%;" />
 
 先選擇`TOCropViewController/Objective-C/TOCropViewController`, 記得點擊**Create groups**
 
-![image-20200221141456692](/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221141456692.png)
+![image-20200221141456692](./media/image-20200221141456692.png)
 
 可以看到剛點加入的檔䅁會**黃色**，如果選了`Create folder references`會顯示藍色
 
-<img src="/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221141814561.png" alt="image-20200221141814561" style="zoom:33%;" />
+<img src="./media/image-20200221141814561.png" alt="image-20200221141814561" style="zoom:33%;" />
 
 再將`TOCropViewController/Swift/CropViewController`的檔案加入`TOCropViewController`
 
-<img src="/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221142954796.png" alt="image-20200221142954796" style="zoom:33%;" />
+<img src="./media/image-20200221142954796.png" alt="image-20200221142954796" style="zoom:33%;" />
 
 注意⚠️: 要把`info.plist`刪除，否則會有錯誤
 
-<img src="/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221143050987.png" alt="image-20200221143050987" style="zoom:50%;" />
+<img src="./media/image-20200221143050987.png" alt="image-20200221143050987" style="zoom:50%;" />
 
 接下來是關鍵的一步建立`{project name}-Bridging-Header.h`
 
-![image-20200221143413492](/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221143413492.png)
+![image-20200221143413492](./media/image-20200221143413492.png)
 
 ```objective-c
 //{project name}-Bridging-Header.h
 #import "TOCropViewController.h" // add
 ```
 
-要在設定加入![image-20200221144046510](/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221144046510.png)
+要在設定加入![image-20200221144046510](./media/image-20200221144046510.png)
 
-![image-20200221144104735](/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221144104735.png)
+![image-20200221144104735](./media/image-20200221144104735.png)
 
 -----
 
@@ -93,11 +93,11 @@ git clone https://github.com/TimOliver/TOCropViewController.git
 
 加入一張相片用作測試
 
-![image-20200221144449741](/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221144449741.png)
+![image-20200221144449741](./media/image-20200221144449741.png)
 
 加一個Button
 
-![image-20200221144851179](/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221144851179.png)
+![image-20200221144851179](./media/image-20200221144851179.png)
 
 ```swift
 class ViewController: UIViewController {
@@ -121,12 +121,12 @@ extension ViewController: CropViewControllerDelegate {
 }
 ```
 
-<img src="/Users/wingch/Try/notes/docs/content/iOS/media/2020-02-21 14.52.01.png" alt="2020-02-21 14.52.01" style="zoom:33%;" />
+<img src="./media/2020-02-21 14.52.01.png" alt="2020-02-21 14.52.01" style="zoom:33%;" />
 
 
 
-![image-20200221145322774](/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221145322774.png)
+![image-20200221145322774](./media/image-20200221145322774.png)
 
 
 
-成功取得正確的結果![image-20200221145348859](/Users/wingch/Try/notes/docs/content/iOS/media/image-20200221145348859.png)
+成功取得正確的結果![image-20200221145348859](./media/image-20200221145348859.png)
