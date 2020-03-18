@@ -151,11 +151,14 @@ Description 隨便填, Bundle ID填剛剛開的Project `try.winch.try-winch-iOS-
 ![](./media/15844591910139.jpg)
 ![](./media/15844592677113.jpg)
 
+![](./media/15845379705418.jpg)
+
 到Distribution, 今次嘗試Ad Hoc
 ![](media/15844592614898.jpg)
 
 最終效果
 ![](media/15844593724645.jpg)
+
 
 接下來是在Xcode使用
 Debug使用`learning__development.mobileprovision`
@@ -164,6 +167,11 @@ Debug使用`learning__development.mobileprovision`
 Release使用`learning_distribution.mobileprovision`
 
 ![](./media/15844597259674.jpg)
+
+
+
+
+
 > 發怖方面與`Automatically manage signing`一樣
 
 
