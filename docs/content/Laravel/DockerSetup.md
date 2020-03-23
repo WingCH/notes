@@ -6,11 +6,14 @@
 
 假設本身沒有Laravel Project，從第一步開始
 
-目標目錄架構
+目標目錄架構, 這樣做方便日後多個項目, Multiple Projects
+> https://laradock.io/getting-started/
 
 ```bash
 ├── laradock
-└── www
+└── project1
+└── project2
+└── ...
 ```
 
 首先clone一份laradock.git
@@ -34,12 +37,12 @@ cd laradock
 cp env-example .env
 vim .env	
 ```
-
+<!--
 將`APP_CODE_PATH_HOST`修改為`../www/`，以符合我們一開始的目錄架構
 
 ```shell
 APP_CODE_PATH_HOST=../www/
-```
+```-->
 
 另外為了避免`80` `443` port 已被使用，所以更改到`8000` `4430`
 
@@ -63,15 +66,9 @@ Creating laradock_php-fpm_1          ... done
 Creating laradock_nginx_1            ... done
 ```
 
-另外，因為我們一開始條改了`.env` 中`APP_CODE_PATH_HOST`的位置，所以生成`www`的文件夾, 現在跟我們一開始的目錄架構一致
 
-```bash
-ls ..
-
-laradock www
-```
-
-然後進入剛剛生成的`laradock_workspace_1`, 日後的所有`php`的操作都是在這裡進行
+然後進入剛剛生成的`laradock_workspace_1`, 日後的所有`php`的操作都是在這裡進行.
+根據`.env` 中`APP_CODE_PATH_CONTAINER`，所以一開始的路徑在`/var/www`
 
 ```bash
 docker-compose exec workspace bash
@@ -79,9 +76,11 @@ docker-compose exec workspace bash
 root@93e56517c403:/var/www#
 ```
 
-在當前目錄生成Laravel項目
+在建立文件夾`project1`, 並生成Laravel項目
 
 ```bash
+mkdir project1
+cd project1
 composer create-project laravel/laravel --prefer-dist .
 
 Installing laravel/laravel (v7.0.0)
@@ -97,10 +96,39 @@ Package operations: 93 installs, 0 updates, 0 removals
   - Installing vlucas/phpdotenv (v4.1.2): Downloading (100%)
   ...
 ```
+如果這時看本地文件的話，會看到多了一個`project1`的文件夾，因為docker是與本地同步的
 
-現在上`http://localhost:8000/`，應該可以看到Laravel的畫面
+![-w857](https://i.loli.net/2020/03/22/g6SW74mV3CUP82p.jpg)
 
-![image-20200320110937960](./media/image-20200320110937960.png)
+假設domain是`project1.test`, 增加一個`.conf`檔案
+
+```bash
+cd ../laradock/
+cp -r nginx/sites/laravel.conf.example nginx/sites/project1.test.conf
+```
+
+把修改`server_name`和`root`
+```bash
+vim nginx/sites/project1.test.conf
+
+server_name project1.test;
+root /var/www/project1/public;
+```
+
+更新一下nginx的設定
+
+```bash
+docker-compose exec nginx nginx -s reload
+```
+
+注意：要在本機的hosts檔添加`127.0.0.1 project1.test`
+![-w800](https://i.loli.net/2020/03/22/PZwU8Y6DCVIkFMJ.jpg)
+
+
+現在上`project1.test:8000`，應該可以看到Laravel的畫面
+
+![-w1280](https://i.loli.net/2020/03/22/TSfysRZWMUAvhPu.jpg)
+
 
 還有些後續操作, 如果我們要`migrate`, 會有Connection refused, 因為我們未正確設定`.env`中的`DB_HOST`
 
@@ -145,7 +173,7 @@ root@52107ec0d277:/#
 登入mysql, 預設帳號密碼都是`root`
 
 ```bash
-mysql -u root -p root
+mysql -u root -p
 
 Enter password:
 ...
@@ -164,6 +192,7 @@ Query OK, 1 row affected (0.01 sec)
 
 ```bash
 docker-compose exec workspace bash
+cd project1
 php artisan migrate
 
 Migration table created successfully.
@@ -180,20 +209,16 @@ Migrated:  2019_08_19_000000_create_failed_jobs_table (0.01 seconds)
 > https://laravel.com/docs/6.x/frontend
 
 ```bash
+cd project1
 composer require laravel/ui
-php artisan ui vue --auth
+php artisan ui bootstrap --auth
 php artisan migrate
 npm install && npm run dev
 ```
 
-重新啟動
-
-```
-docker-compose down
-ocker-compose up -d nginx mysql
-```
 
 成功!!
 
-![image-20200320153041993](./media/image-20200320153041993.png)
+![image-20200320153041993](https://i.loli.net/2020/03/21/klKnM8mDO5aCpJb.png)
+
 
