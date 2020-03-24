@@ -4,13 +4,20 @@
 
 > [將 Flutter module 集成到 iOS 項目](https://flutter.cn/docs/development/add-to-app/ios/project-setup)
 
-建立一个 Flutter module, 個人喜好使用swift 好似唔得????????
+建立一个 Flutter module
+> 不支援swift? https://github.com/flutter/flutter/issues/53091
 
 ```bash
-flutter create --template module -i swift -a kotlin my_flutter
+flutter create --template module my_flutter
 ```
 
-建立一個iOS Project, 都是swift的 , 放在同一層
+需要先安裝
+```
+cd my_flutter
+flutter pub get 
+```
+
+建立一個iOS Project, 放在同一層
 
 ![image-20200323101714947](./media/image-20200323101714947.png)
 
@@ -55,9 +62,12 @@ Integrating client project
 ...
 ```
 
-打開iOS Project, 嘗試run
+打開iOS Project, 嘗試run 看看是否正常
 
 ![image-20200323102258880](./media/image-20200323102258880.png)
 
-...
+打開my_flutter的iOS Project, 嘗試run 看看是否正常
+![-w857](./media/15849732302398.jpg)
 
+正常應該可以看到Flutter的Counter example
+![-w443](./media/15849733103915.jpg)
