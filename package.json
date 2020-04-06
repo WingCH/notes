@@ -16,6 +16,7 @@
     "vuepress": "^1.4.0"
   },
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^1.4.0"
+    "@vuepress/plugin-google-analytics": "^1.4.0",
+    "vuepress-plugin-google-adsense": "^0.1.0"
   }
 }
