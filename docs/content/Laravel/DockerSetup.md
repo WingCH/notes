@@ -42,11 +42,11 @@ vim .env
 
 ```shell
 APP_CODE_PATH_HOST=../www/
-```-->
+​```-->
 
 另外為了避免`80` `443` port 已被使用，所以更改到`8000` `4430`
 
-```bash
+​```bash
 NGINX_HOST_HTTP_PORT=8000
 NGINX_HOST_HTTPS_PORT=4430
 ```
@@ -221,4 +221,8 @@ npm install && npm run dev
 
 ![image-20200320153041993](https://i.loli.net/2020/03/21/klKnM8mDO5aCpJb.png)
 
+----
 
+Xdebug
+
+> 參考: http://onthink.com/2019/02/20/mac-laradock-xdebug-phpstorm/

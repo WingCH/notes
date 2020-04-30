@@ -4,26 +4,26 @@
 
 選擇EC2的主機
 
-![image-20200429201355685](media/image-20200429201355685.png)
+![image-20200429201355685](./media/image-20200429201355685.png)
 
 下載Key Pair `pem`, 用放ssh登入
 
-<img src="media/image-20200429201426680.png" alt="image-20200429201426680" style="zoom:50%;" />
+<img src="./media/image-20200429201426680.png" alt="image-20200429201426680" style="zoom:50%;" />
 
 ```shell
 # 要增加權限才能使用 參考 https://blog.csdn.net/u013197629/article/details/73608613
 chmod 600 xxx.pem
 ```
 
-![image-20200429201448740](media/image-20200429201448740.png)
+![image-20200429201448740](./media/image-20200429201448740.png)
 
 記下`Public DNS (IPv4)`
 
-![image-20200429201540331](media/image-20200429201540331.png)
+![image-20200429201540331](./media/image-20200429201540331.png)
 
 開http port 80, 443
 
-![image-20200429222245870](media/image-20200429222245870.png)![image-20200429222344359](media/image-20200429222344359.png)
+![image-20200429222245870](./media/image-20200429222245870.png)![image-20200429222344359](./media/image-20200429222344359.png)
 
 使用ssh連接server
 
@@ -31,7 +31,7 @@ chmod 600 xxx.pem
 ssh -i xxx.pem ec2-user@xxxxxxxxxxxxx.compute.amazonaws.com
 ```
 
-![image-20200429204700402](media/image-20200429204700402.png)
+![image-20200429204700402](./media/image-20200429204700402.png)
 
 
 
@@ -64,9 +64,9 @@ ssh-keygen -t rsa -C "your.email@gmail.com" -b 4096
 cat ~/.ssh/id_rsa.pub
 ```
 
-![image-20200429213317987](media/image-20200429213317987.png)
+![image-20200429213317987](./media/image-20200429213317987.png)
 
-![image-20200429213418828](media/image-20200429213418828.png)
+![image-20200429213418828](./media/image-20200429213418828.png)
 
 Clone GitHub `Private`頂目
 
@@ -80,7 +80,7 @@ git clone git@github.com:xxxxxx.git
 
 我是使用submodule的方式使用[Laradock](https://laradock.io/getting-started/#a-1-already-have-a-php-project)
 
-![image-20200429214959666](media/image-20200429214959666.png)
+![image-20200429214959666](./media/image-20200429214959666.png)
 
 上面的`git clone` 不會下載submodule，所以需要再下載: https://blog.chh.tw/posts/git-submodule/
 
@@ -156,7 +156,7 @@ REDIS_PORT=6379
 
 
 
-![image-20200429223351479](media/image-20200429223351479.png)
+![image-20200429223351479](./media/image-20200429223351479.png)
 
 ### 其他操作 
 
