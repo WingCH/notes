@@ -161,3 +161,15 @@ REDIS_PORT=6379
 ### 其他操作 
 
 參考: http://notes.wingpage.net/content/Laravel/DockerSetup.html
+
+---
+
+## 相關問題:
+
+#### was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint
+
+https://stackoverflow.com/a/33831697/5588637
+
+參考: 
+
+![image-20200430175133836](./media/image-20200430175133836.png)![image-20200430175325290](./media/image-20200430175325290.png)
