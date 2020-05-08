@@ -43,6 +43,10 @@ flutter pub get
 
 ![image-20200323101714947](./media/image-20200323101714947.png)
 
+**有三種方法如下:** (只需用其中一款)
+
+## 2.1 使用 CocoaPods 和 Flutter SDK 集成
+
 初始化CocoaPods, 會生成`Podfile`
 
 ```bash
@@ -52,8 +56,6 @@ ls
 
 Podfile              iOSProject           iOSProject.xcodeproj
 ```
-
-
 
 根據[官網教學](https://flutter.cn/docs/development/add-to-app/ios/project-setup#option-a---embed-with-cocoapods-and-the-flutter-sdk)
 
@@ -93,6 +95,87 @@ iOS端一開始正常是空白的
 <img src="./media/image-20200405220716869.png" alt="image-20200405220716869" style="zoom:25%;" />
 
 
+
+## 2.2 在 Xcode 中集成 frameworks
+
+```shell
+flutter build ios-framework
+
+some/path/MyApp/
+└── Flutter/
+    ├── Debug/
+    │   ├── Flutter.framework
+    │   ├── App.framework
+    │   ├── FlutterPluginRegistrant.framework (only if you have plugins with iOS platform code)
+    │   └── example_plugin.framework (each plugin is a separate framework)
+    ├── Profile/
+    │   ├── Flutter.framework
+    │   ├── App.framework
+    │   ├── FlutterPluginRegistrant.framework
+    │   └── example_plugin.framework
+    └── Release/
+        ├── Flutter.framework
+        ├── App.framework
+        ├── FlutterPluginRegistrant.framework
+        └── example_plugin.framework
+```
+
+
+
+會生成三組framework, 分別是 `Debug`  `Profile` `Release`
+
+因為framework 原本分開了`Profile` 和 `Release`，有兩個解決方式
+
+1. 將`Profile` 和 `Release` 合併成一個framework
+2. 在Xcode 有兩個config setting
+
+現在嘗試用第二種方式
+
+> 參考: https://www.appcoda.com.tw/using-xcode-targets/
+
+<img src="./media/image-20200508133613462.png" alt="image-20200508133613462" style="zoom:50%;" />
+
+設定成同名
+
+<img src="./media/image-20200508133733296.png" alt="image-20200508133733296" style="zoom:50%;" />
+
+
+
+`iOSProject_use_frameworks` 使用 `Release`
+
+`iOSProject_use_frameworks_DEBUG` 使用 `Profile`
+
+
+
+### Release setup
+
+拉入去
+
+<img src="./media/image-20200508134236641.png" alt="image-20200508134236641" style="zoom:50%;" />
+
+選擇targets `iOSProject_use_frameworks`
+
+<img src="./media/image-20200508134101083.png" alt="image-20200508134101083" style="zoom:50%;" />
+
+設定 `Embed & Sign`
+
+<img src="./media/image-20200508134352787.png" alt="image-20200508134352787" style="zoom:50%;" />
+
+### Profile setup
+
+拉入去
+
+<img src="./media/image-20200508135309080.png" alt="image-20200508135309080" style="zoom:50%;" />
+
+<img src="./media/image-20200508135334283.png" alt="image-20200508135334283" style="zoom:50%;" />
+
+<img src="./media/image-20200508135439287.png" alt="image-20200508135439287" style="zoom:50%;" />
+
+> 上述步驟已完成[官方教學 选项 B - 在 Xcode 中集成 frameworks](https://flutter.cn/docs/development/add-to-app/ios/project-setup#option-b---embed-frameworks-in-xcode ), 链接到框架 和 内嵌框架 等設定.
+
+---
+
+## 在原生App[添加一个 Flutter 页面](https://flutter.cn/docs/development/add-to-app/ios/add-flutter-screen)
 
 > 根據[官方教學](https://flutter.cn/docs/development/add-to-app/ios/add-flutter-screen?tab=vc-swift-tab#create-a-flutterengine), 修改`AppDelegate.swift`
 >
