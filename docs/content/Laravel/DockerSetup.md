@@ -37,21 +37,25 @@ cd laradock
 cp env-example .env
 vim .env	
 ```
-<!--
-將`APP_CODE_PATH_HOST`修改為`../www/`，以符合我們一開始的目錄架構
 
-```shell
-APP_CODE_PATH_HOST=../www/
-​```-->
+<!--將 `APP_CODE_PATH_HOST`修改為`../www/`，以符合我們一開始的目錄架構-->
+
+<!-- ```shell-->
+<!--APP_CODE_PATH_HOST=../www/-->
+<!--```-->
+
+
+
 
 另外為了避免`80` `443` port 已被使用，所以更改到`8000` `4430`
 
-​```bash
+```bash
 NGINX_HOST_HTTP_PORT=8000
 NGINX_HOST_HTTPS_PORT=4430
 ```
 
 進入容器 `nginx` 和 `mysql`, 會自動生成`network`, `container`等項目
+
 
 ```bash
 docker-compose up -d nginx mysql
@@ -65,6 +69,7 @@ Creating laradock_workspace_1        ... done
 Creating laradock_php-fpm_1          ... done
 Creating laradock_nginx_1            ... done
 ```
+
 
 
 然後進入剛剛生成的`laradock_workspace_1`, 日後的所有`php`的操作都是在這裡進行.
