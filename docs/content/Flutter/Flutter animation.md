@@ -29,7 +29,7 @@ final Animation<double> animation = CurvedAnimation(
 );
 ```
 
-## 
+
 
 ## AnimationController
 
@@ -275,7 +275,113 @@ AnimatedBuilder(
 
 ---
 
+# Animated widget
 
+
+
+###	AnimatedContainer
+
+> 簡單説就是一個改變 `width` 和 `height` 後會有動畫效果的`Container`
+
+<img src="./media/2020-07-15 21.04.41.gif" alt="" style="zoom: 50%;" />
+
+
+
+```dart
+class ExpandCard extends StatefulWidget {
+  @override
+  _ExpandCardState createState() => _ExpandCardState();
+}
+
+class _ExpandCardState extends State<ExpandCard>
+    with SingleTickerProviderStateMixin {
+  static const Duration duration = Duration(milliseconds: 300);
+  bool selected = false;
+
+  @override
+  Widget build(context) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selected = !selected;
+        });
+      },
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: AnimatedContainer(
+            duration: duration,
+            width: selected ? 256 : 128,
+            height: selected ? 256 : 128,
+            curve: Curves.ease,
+            child: Container(
+              color: selected ? Colors.cyan : Colors.amber,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+
+
+### AnimatedCrossFade
+
+> 轉換兩個`widget`, 帶有淡入淡出的效果
+
+<img src="./media/2020-07-15 21.15.15.gif" alt="" style="zoom: 50%;" />
+
+```dart
+static const Duration duration = Duration(milliseconds: 300);
+bool selected = false;
+
+@override
+Widget build(context) {
+  return GestureDetector(
+    onTap: () {
+      setState(() {
+        selected = !selected;
+      });
+    },
+    child: Card(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: 200,
+          height: 200,
+          child: AnimatedCrossFade(
+            duration: duration,
+            firstCurve: Curves.easeInOutCubic,
+            secondCurve: Curves.easeInOutCubic,
+            crossFadeState: selected
+            ? CrossFadeState.showSecond
+            : CrossFadeState.showFirst,
+            firstChild: Image.asset(
+              'assets/eat_cape_town_sm.jpg',
+              fit: BoxFit.cover,
+            ),
+            secondChild: Image.asset(
+              'assets/eat_new_orleans_sm.jpg',
+              fit: BoxFit.cover,
+            ),
+          ),
+        )),
+    ),
+  );
+}
+```
+
+####   AnimatedCrossFade 結合 AnimatedContainer
+
+> source: https://github.com/flutter/samples/blob/master/animations/lib/src/misc/expand_card.dart
+
+<img src="./media/2020-07-15 21.18.59.gif" alt="" style="zoom: 50%;" />
+
+
+
+---
 
 
 
