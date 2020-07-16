@@ -381,6 +381,14 @@ Widget build(context) {
 
 
 
+### AnimatedSwitcher
+
+> https://book.flutterchina.club/chapter9/animated_switcher.html
+>
+> 整個widget換的過程加入動畫，同`PageRouteBuilder`有點相似
+
+
+
 ---
 
 
