@@ -231,3 +231,64 @@ npm install && npm run dev
 Xdebug
 
 > 參考: http://onthink.com/2019/02/20/mac-laradock-xdebug-phpstorm/
+
+---
+
+## Laravel  Multiple Pproject (Laradock)
+
+假設有兩個Laravel Project, `project1` 和`project2`
+
+首先設定要個project的nginx conf
+
+```shell
+#  project1 
+cp -r nginx/sites/laravel.conf.example nginx/sites/project1.test.conf
+#  project2
+cp -r nginx/sites/laravel.conf.example nginx/sites/project2.test.conf
+```
+
+
+
+```shell
+#  project1 
+vim nginx/sites/project1.test.conf
+
+server_name project1.test;
+root /var/www/project1/public;
+
+#  project2
+vim nginx/sites/project2.test.conf
+
+server_name project2.test;
+root /var/www/project2/public;
+```
+
+
+
+### local 本地測試
+
+```shell
+# /etc/hosts
+127.0.0.1       project1.wingch.site
+127.0.0.1       project2.wingch.site
+```
+
+會根據`server_name` 轉入指定的path
+
+![image-20200726171623552](./media/image-20200726171623552.png)
+
+
+
+### remote 遠端測試
+
+在`cloudflare` 將兩條domain 指入server
+
+![image-20200726172441438](./media/image-20200726172441438.png)
+
+在路由器指向本地的server, server本地ip是`192.168.1.117`, 本地的80 port 指向server的80 port
+
+![image-20200726172743594](./media/image-20200726172743594.png)
+
+
+
+![image-20200726172910397](./media/image-20200726172910397.png)
