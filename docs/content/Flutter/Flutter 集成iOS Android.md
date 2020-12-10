@@ -267,3 +267,47 @@ class ViewController: UIViewController {
 
 
 <img src="./media/2020-04-05 22.58.45.png" alt="2020-04-05 22.58.45" style="zoom:25%;" />
+
+---
+
+### Qustion
+
+#### Use methodChannel without  pre warm engine
+
+```swift
+        let flutterViewController = FlutterViewController(project: nil, initialRoute: "/mini", nibName: nil, bundle: nil)
+        methodChannel = FlutterMethodChannel(
+            name: "dev.flutter.example/counter",
+            binaryMessenger: flutterViewController.binaryMessenger //flutterViewController can get binaryMessenger
+        )
+
+        methodChannel?.setMethodCallHandler({ [weak self]
+            (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
+            if let strongSelf = self {
+                switch(call.method) {
+                case "incrementCounter":
+                    strongSelf.count += 1
+                    strongSelf.counterLabel.text = "Current counter: \(strongSelf.count)"
+                    strongSelf.reportCounter()
+                case "requestCounter":
+                    strongSelf.reportCounter()
+                default:
+                    // Unrecognized method name
+                    print("Unrecognized method name: \(call.method)")
+                }
+            }
+        })
+
+        present(flutterViewController, animated: true, completion: nil)
+```
+
+
+
+#### Pop  flutterViewController
+
+>  ref: https://github.com/flutter/samples/blob/3d943d7d460527d0c69b94b33de97841de027832/add_to_app/flutter_module/lib/main.dart#L150
+
+```dart
+SystemNavigator.pop(animated: true)
+```
+
