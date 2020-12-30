@@ -1,4 +1,4 @@
-# Firebase functions
+# [Old] Firebase Functions
 
 > 跟住做:[Node.js apps on Firebase Hosting Crash Course - Firecasts](https://www.youtube.com/watch?v=LOeioOKUKI8)
 
