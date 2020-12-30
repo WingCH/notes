@@ -52,6 +52,9 @@ vim .env
 ```bash
 NGINX_HOST_HTTP_PORT=8000
 NGINX_HOST_HTTPS_PORT=4430
+
+# qnap nas 本身已佔用8080，這時可以改成WORKSPACE_VUE_CLI_SERVE_HOST_PORT
+WORKSPACE_VUE_CLI_SERVE_HOST_PORT=9090
 ```
 
 進入容器 `nginx` 和 `mysql`, 會自動生成`network`, `container`等項目
