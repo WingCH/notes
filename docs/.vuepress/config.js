@@ -27,14 +27,13 @@ const getChildren = function(root_path, sub_path) {
     };
   });
 
-  return json;
+  return json.filter(dir => dir.title !== "Exam");
 };
 
 module.exports = {
   title: "WingCH's Notes",
   description: "My study record ~",
   base: "/", // 这是部署到github相关的配置
-  patterns: ['**/*.md', '**/*.vue', '!**/Exam'],
   markdown: {
     lineNumbers: false // 代碼塊顯示行號
   },
