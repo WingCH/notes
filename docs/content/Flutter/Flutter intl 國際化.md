@@ -106,7 +106,7 @@ class MyApp extends StatelessWidget {
 
 iOS 需要加入語言
 
-![image-20200606102326805](../../../../../../Users/wingch/Downloads/wndVXJb.png)
+![image-20200606102326805](https://i.imgur.com/3EiUX4g.png)
 
 ---
 
