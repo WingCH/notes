@@ -23,9 +23,9 @@
 
 首先在Android Stuido 安裝[Flutter intl](https://plugins.jetbrains.com/plugin/13666-flutter-intl)插件
 
-![image-20200606090251399](./media/image-20200606090251399.png)
+![image-20200606090251399](https://i.imgur.com/fauUrRb.png)
 
-首先加入官方的`flutter_localizations`依賴
+在`pubspec.yaml`加入官方的`flutter_localizations`依賴
 
 ```yaml
 dependencies:
@@ -40,17 +40,17 @@ flutter pub get
 
 點擊`Initialize for the Project`
 
-![image-20200606090620597](./media/image-20200606090620597.png)
+![image-20200606090620597](https://i.imgur.com/wyo8W4s.png)
 
 Initialize 生成配置的文件, 預設是`en`,  當我們修改`l10n`目錄下的語言檔案時會自動觸發`flutter pub global run intl_utils:generate` 生成`generated`目錄下的檔案。
 
-![image-20200606093420550](./media/image-20200606093420550.png)
+![image-20200606093420550](https://i.imgur.com/zhEFtR7.png)
 
 增加語言, 我加入了繁體中文`zh_Hant`
 
 >  Locale code 參考: https://api.flutter.dev/flutter/flutter_localizations/flutter_localizations-library.html
 
-<img src="./media/image-20200606095646077.png" alt="image-20200606095646077" style="zoom:50%;" />
+<img src="https://i.imgur.com/jdrihfO.png" alt="image-20200606095646077" style="zoom:50%;" />
 
 
 
@@ -98,16 +98,16 @@ class MyApp extends StatelessWidget {
 
 儲存後自動觸發`flutter pub global run intl_utils:generate` 
 
-![image-20200606101934499](./media/image-20200606101934499.png)
+![image-20200606101934499](https://i.imgur.com/3aDPkHX.png)
 
 會根據`arb`檔案自動生成相對應的配置
 
-![image-20200606102019818](./media/image-20200606102019818.png)
+![image-20200606102019818](https://i.imgur.com/UOJvsaK.png)
 
 iOS 需要加入語言
 
-![image-20200606102326805](./media/image-20200606102326805.png)
+![image-20200606102326805](../../../../../../Users/wingch/Downloads/wndVXJb.png)
 
 ---
 
-![image-20200606103924812](./media/image-20200606103924812.png)
+![image-20200606103924812](https://i.imgur.com/BIwzy3y.jpg)

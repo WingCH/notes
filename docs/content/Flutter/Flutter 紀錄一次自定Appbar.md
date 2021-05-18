@@ -2,7 +2,7 @@
 
 ### 效果圖
 
-<img src="./media/2020-05-09 23.31.51.png" alt="2020-05-09 23.31.51" style="zoom:50%;" />
+<img src="https://i.imgur.com/1drbtEI.gif" alt="2020-05-09 23.31.51" style="zoom:50%;" />
 
 
 

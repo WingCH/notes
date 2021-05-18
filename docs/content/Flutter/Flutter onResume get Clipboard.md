@@ -96,3 +96,4 @@ flutter: AppLifecycleState.resumed
 -------
 
 > When `didChangeAppLifecycleState` is `resumed` get Clipboard data
+
