@@ -1,7 +1,7 @@
 const moment = require('moment');
 const glob = require("glob");
 
-const getChildren = function(root_path, sub_path) {
+const getChildren = function (root_path, sub_path) {
   dirs = glob.sync(root_path + sub_path + "/*").map(path => {
     //Remove root_path
     path = path.slice(root_path.length + sub_path.length + 1);
@@ -38,7 +38,10 @@ module.exports = {
     lineNumbers: false // 代碼塊顯示行號
   },
   themeConfig: {
-    nav: [{ text: "GitHub", link: "https://github.com/WingCH/notes" }],
+    nav: [{
+      text: "GitHub",
+      link: "https://github.com/WingCH/notes"
+    }],
     sidebar: getChildren("docs", "/content"),
     lastUpdated: 'Last Updated'
   },
@@ -58,7 +61,12 @@ module.exports = {
       '@vuepress/google-analytics',
       {
         'ga': 'UA-162896978-1'
-      }
+      },
+      "vuepress-plugin-google-adsense",
+      {
+        adClient: "ca-pub-7810802169666596",
+        adsTxt: true
+      },
     ]
-  ]
+  ],
 };
