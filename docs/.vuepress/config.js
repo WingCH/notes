@@ -59,12 +59,6 @@ module.exports = {
       {
         'ga': 'UA-162896978-1'
       }
-    ],
-    [
-      "vuepress-plugin-google-adsense",
-      {
-        ad_client: "ca-pub-7810802169666596" // replace it with your ad_client
-      }
     ]
   ]
 };
