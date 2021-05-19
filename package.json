@@ -14,10 +14,11 @@
     "@vuepress/core": "^1.8.2",
     "glob": "^7.1.4",
     "moment": "^2.24.0",
+    "vue-google-adsense": "^1.9.3",
+    "vue-script2": "^2.1.0",
     "vuepress": "^1.8.2"
   },
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^1.4.0",
-    "vuepress-plugin-google-adsense": "^0.2.1"
+    "@vuepress/plugin-google-analytics": "^1.4.0"
   }
 }
