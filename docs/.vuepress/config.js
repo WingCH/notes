@@ -63,12 +63,15 @@ module.exports = {
         'ga': 'UA-162896978-1'
       }
     ],
+  ],
+  head: [
     [
-      "vuepress-plugin-google-adsense",
+      "script",
       {
-        adClient: "ca-pub-7810802169666596",
-        adsTxt: true
+        "data-ad-client": "ca-pub-7810802169666596",
+        async: true,
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
       },
-    ]
+    ],
   ],
 };
