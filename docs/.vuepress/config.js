@@ -53,7 +53,7 @@ module.exports = {
           // Don't forget to install moment yourself
           const moment = require('moment')
           moment.locale(lang)
-          return moment(timestamp).fromNow()
+          return moment(timestamp).toString()
         }
       }
     ],
@@ -63,6 +63,11 @@ module.exports = {
         'ga': 'UA-162896978-1'
       }
     ],
+    [
+      'sitemap', {
+        hostname: 'https://wingpage.net/'
+      },
+    ]
   ],
   head: [
     [
