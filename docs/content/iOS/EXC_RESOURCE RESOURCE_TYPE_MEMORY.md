@@ -20,17 +20,17 @@ https://github.com/WingCH/widget-image-memory
 
 首先先上效果圖，上下各一張我自己影的相片！
 
-![img](media/1*7_jzU4SFUpLF1exsHVN8Mw.png)
+![img](https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/1*7_jzU4SFUpLF1exsHVN8Mw.png)
 
 當我在真機運行的時候，Xcode報錯，widget記憶體不能用多於30mb
 
 > EXC_RESOURCE RESOURCE_TYPE_MEMORY (limit=30 MB, unused=0x0)
 
-![img](media/1*XoPLGSUyaPKO1pG4CneKOg.png)
+![img](https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/1*XoPLGSUyaPKO1pG4CneKOg.png)
 
 記憶體實際使用了58.8mb，但有時候只顯示到上限的30mb，不能顯示正確的記憶體用量，應該是Xcode的問題。
 
-![img](media/1*Wl8XUSJgGcIoAFipoRtGdA.png)
+![img](https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/1*Wl8XUSJgGcIoAFipoRtGdA.png)
 
 ### 嘗試壓縮相片
 
@@ -44,7 +44,7 @@ https://github.com/WingCH/widget-image-memory
 相片2: 96kb (6000 × 4000)
 記憶體使用量: ~30mb up
 
-![img](media/1*lDQYiWm71oDgkDQpg6NGsA.png)
+![img](https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/1*lDQYiWm71oDgkDQpg6NGsA.png)
 
 壓縮後問題依然存在..
 
@@ -62,7 +62,7 @@ https://github.com/WingCH/widget-image-memory
 相片2: 12kb (320 × 213)
 記憶體使用量: 8mb
 
-![img](media/1*F6DEje-kDV-HtQmbwaqOyQ.png)
+![img](https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/1*F6DEje-kDV-HtQmbwaqOyQ.png)
 
 成功將記憶體使用量大幅下降至8mb!
 
