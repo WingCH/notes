@@ -1,6 +1,16 @@
 const moment = require('moment');
 const glob = require("glob");
 
+// https://stackoverflow.com/a/63457487
+const applyCustomOrder = (arr, desiredOrder) => {
+  const orderForIndexVals = desiredOrder.slice(0).reverse();
+  arr.sort((a, b) => {
+    const aIndex = -orderForIndexVals.indexOf(a.title);
+    const bIndex = -orderForIndexVals.indexOf(b.title);
+    return aIndex - bIndex;
+  });
+}
+
 const getChildren = function (root_path, sub_path) {
   dirs = glob.sync(root_path + sub_path + "/*").map(path => {
     //Remove root_path
@@ -26,6 +36,10 @@ const getChildren = function (root_path, sub_path) {
       children: files
     };
   });
+
+  const customOrder = ['iOS', 'Flutter', 'Firebase', 'Laravel', 'Other'];
+  
+  applyCustomOrder(json,customOrder);
 
   return json.filter(dir => dir.title !== "Exam");
 };
