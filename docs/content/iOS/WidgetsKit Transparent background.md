@@ -1,4 +1,4 @@
-# WidgetsKit 透明背景
+# WidgetKit 透明背景
 
 ![WidgetsKit Transparent background](https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/iShot2021-10-25%2022.41.14.PNG)
 
