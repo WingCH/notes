@@ -141,7 +141,7 @@ Home Widget 本身不支持透明背景, 所以要將背景設定成和背景一
 
 
 
-### 2. Widge 攞放位置
+### 2. Widget 攞放位置
 
 ```swift
 enum WidgetPosition: String, CaseIterable, Codable, Identifiable {
@@ -359,3 +359,4 @@ struct HomeWidget: Widget {
 ```
 
 ![WidgetsKit Transparent background](https://cdn.jsdelivr.net/gh/WingCH/ImageHosting@master/uPic/iShot2021-10-25 22.41.14.PNG)
+
