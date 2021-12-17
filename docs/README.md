@@ -3,14 +3,9 @@
 
 - 👨‍💻 All of my projects are available at
 [https://apps.apple.com/hk/developer/chan-hong-wing/id1458451529](https://apps.apple.com/hk/developer/chan-hong-wing/id1458451529)
-
-- 📝 I sometime write articles on [https://wingch-apps.medium.com/](https://wingch-apps.medium.com/)
-
+- 📝 I sometimes write articles on [https://wingch-apps.medium.com/](https://wingch-apps.medium.com/)
 - 💬 Ask me about **iOS and Flutter**
-
 - 📫 How to reach me **wingch.apps@gmail.com**
-
-- 📝 I sometime write articles on my blog [https://wingch.site/](https://wingch.site/)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
@@ -52,3 +47,4 @@
 
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=wingch&show_icons=true&locale=en"
         alt="wingch" /></p>
+
